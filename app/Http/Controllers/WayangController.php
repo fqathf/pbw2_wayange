@@ -97,6 +97,7 @@ class WayangController extends Controller
     
     public function search(Request $wayangRequest)
     {
+        $listKategori = Kategori::all();
         $query = Wayang::query();
 
         if($wayangRequest->filled('search')){
@@ -104,7 +105,8 @@ class WayangController extends Controller
         }
 
         return view('wayang.index', [
-            'listWayang' => $query->get()
+            'listWayang' => $query->get(),
+            'listKategori' => $listKategori
         ]);
     }
 

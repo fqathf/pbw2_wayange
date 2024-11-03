@@ -14,7 +14,11 @@ class WayangController extends Controller
     public function index()
     {
         $listWayang = Wayang::with('kategori')->get();
-        return view('wayang.index', compact('listWayang'));
+        $listKategori = Kategori::all();
+        return view('wayang.index', [
+            'listWayang' => $listWayang,
+            'listKategori' => $listKategori
+        ]);
     }
 
 
@@ -89,5 +93,33 @@ class WayangController extends Controller
         Wayang::destroy($id);
 
         return redirect()->route('wayang.index')->with('success', 'Wayang deleted successfully.');
+    }
+    
+    public function search(Request $wayangRequest)
+    {
+        $query = Wayang::query();
+
+        if($wayangRequest->filled('search')){
+            $query->where('nama_wayang', 'like', "%" . $wayangRequest->search . "%");
+        }
+
+        return view('wayang.index', [
+            'listWayang' => $query->get()
+        ]);
+    }
+
+    public function filter(Request $wayangRequest)
+    {
+        $listKategori = Kategori::all();
+        $query = Wayang::with('kategori');
+
+        if($wayangRequest->has('kategori')){
+            $query->where('id_kategori', $wayangRequest->kategori);
+        }
+
+        return view('wayang.index', [
+            'listWayang' => $query->get(),
+            'listKategori' => $listKategori
+        ]);
     }
 }

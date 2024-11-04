@@ -115,7 +115,10 @@ class WayangController extends Controller
         $listKategori = Kategori::all();
         $query = Wayang::with('kategori');
 
-        if($wayangRequest->has('kategori')){
+        if($wayangRequest->input('kategori') == 0){
+            $query;
+        }
+        else{
             $query->where('id_kategori', $wayangRequest->kategori);
         }
 

@@ -77,7 +77,7 @@
     
     <form id="filterForm" action="{{ route('wayang.filter') }}" method="GET">
         <select name="kategori" id="kategoriSelect" onchange="document.getElementById('filterForm').submit()">
-            <option value="">Pilih Kategori</option>
+            <option value="0" {{ request('kategori') == 0 ? 'selected' : '' }}>Pilih Kategori</option>
             @foreach ($listKategori as $kategori)
                 <option value="{{ $kategori->id_k }}" {{ request('kategori') == $kategori->id_k ? 'selected' : '' }}>
                     {{ $kategori->nama_kategori }}

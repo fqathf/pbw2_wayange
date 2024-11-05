@@ -62,16 +62,16 @@ class WayangController extends Controller
     public function update(Request $wayangRequest, $id)
     {
         $validateWayang = $wayangRequest->validate([
-            'nama_wayang' => 'nullable',
-            'judul_wayang' => 'nullable',
-            'isi_wayang' => 'nullable',
-            'gambar_wayang' => 'nullable|image|file|max:2048',
-            'id_kategori' => 'nullable',
+            'nama_wayang' => 'required',
+            'judul_wayang' => 'required',
+            'isi_wayang' => 'required',
+            'gambar_wayang' => 'image|file|max:2048',
+            'id_kategori' => 'required',
         ]);
 
         if ($wayangRequest->file('gambar_wayang')) {
             if ($wayangRequest->old_gambar_wayang) {
-                Storage::delete($wayangRequest->old_gambar_wayang);
+                Storage::disk('public')->delete($wayangRequest->old_gambar_wayang);
             }
             $validateWayang['gambar_wayang'] = $wayangRequest->file('gambar_wayang')->store('gambar-wayang', 'public');
         }
@@ -86,9 +86,9 @@ class WayangController extends Controller
         $listWayang = Wayang::find($id);
 
         if ($listWayang->gambar_wayang) {
-            Storage::delete('gambar-wayang/' . basename($listWayang->gambar_wayang));
+            Storage::disk('public')->delete($listWayang->gambar_wayang);
         }
-
+        
         $listWayang->delete();
         Wayang::destroy($id);
 

@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WayangController;
 
 Route::get('/', function () {
-    return view('wayang.index');
+    return view('landing');
 });
 
 // Route::group(['prefix' => 'admin', 'middleware' ['auth'], 'as' => 'admin'], function(){

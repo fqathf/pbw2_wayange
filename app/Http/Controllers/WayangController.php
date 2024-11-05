@@ -15,7 +15,7 @@ class WayangController extends Controller
     {
         $listWayang = Wayang::with('kategori')->get();
         $listKategori = Kategori::all();
-        return view('wayang.index', [
+        return view('wayangmvp.index', [
             'listWayang' => $listWayang,
             'listKategori' => $listKategori
         ]);

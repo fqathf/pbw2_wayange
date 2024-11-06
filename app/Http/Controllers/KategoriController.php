@@ -9,7 +9,7 @@ class KategoriController extends Controller
 {
     public function index()
     {
-        return view('wayang.index', [
+        return view('wayangmvp.index', [
             'listKategori' => Kategori::all()
         ]);
     }

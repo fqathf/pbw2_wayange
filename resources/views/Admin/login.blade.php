@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>WAYANGE</title>
 </head>
 <body>
     <div class="container">
-        <h2>Login</h2>
+        <h2>WAYANGE</h2>
         
         <form action="{{ route('admin.login') }}" method="POST">
             @csrf

@@ -15,7 +15,7 @@ class WayangController extends Controller
     {
         $listWayang = Wayang::with('kategori')->get();
         $listKategori = Kategori::all();
-        return view('wayang.index', [
+        return view('admin.wayang.index', [
             'listWayang' => $listWayang,
             'listKategori' => $listKategori
         ]);
@@ -26,7 +26,7 @@ class WayangController extends Controller
     {
         $listKategori = Kategori::all();
         $listWayang = Wayang::all();
-        return view('wayang.create', [
+        return view('admin.wayang.create', [
             'listKategori' => $listKategori,
             'listWayang' => $listWayang
         ]);
@@ -53,7 +53,7 @@ class WayangController extends Controller
 
     public function edit($id)
     {   
-        return view('wayang.update', [
+        return view('admin.wayang.update', [
             'listWayang' => Wayang::find($id),
             'listKategori' => Kategori::all()
         ]);
@@ -104,7 +104,7 @@ class WayangController extends Controller
             $query->where('nama_wayang', 'like', "%" . $wayangRequest->search . "%");
         }
 
-        return view('wayang.index', [
+        return view('admin.wayang.index', [
             'listWayang' => $query->get(),
             'listKategori' => $listKategori
         ]);
@@ -122,7 +122,7 @@ class WayangController extends Controller
             $query->where('id_kategori', $wayangRequest->kategori);
         }
 
-        return view('wayang.index', [
+        return view('admin.wayang.index', [
             'listWayang' => $query->get(),
             'listKategori' => $listKategori
         ]);

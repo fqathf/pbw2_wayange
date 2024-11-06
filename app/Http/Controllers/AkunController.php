@@ -51,4 +51,10 @@ class AkunController extends Controller
         }
         return redirect()->back()->with('error', 'Email or password is wrong.');
     }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('admin.login');
+    }
 }

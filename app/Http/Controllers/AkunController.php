@@ -11,7 +11,7 @@ class AkunController extends Controller
 {
     public function formRegister()
     {   $role = Roles::all();
-        return view('adminmvp.register', [
+        return view('admin.register', [
             'role' => $role
         ]);
     }

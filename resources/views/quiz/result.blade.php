@@ -10,7 +10,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    @include('components.layout.other')
+    @include('components.navbar')
     <div class="min-h-screen w-full pt-20 flex justify-center items-center">
         <div class="border max-w-sm flex flex-col justify-center items-center text-center py-6 my-6 rounded-lg">
             <h1 class="font-bold text-[32px] font-[playfair]">Hasil Kuis</h1>

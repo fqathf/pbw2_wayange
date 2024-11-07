@@ -7,7 +7,7 @@
       >
         <a href="./" class="flex items-center space-x-3 rtl:space-x-reverse">
           <img
-            src="./assets/img/logo-wayang.svg"
+            src="{{ asset('assets/img/logo-wayang.svg') }}"
             class="h-16"
             alt="Wayange Logo"
           />

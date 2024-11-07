@@ -37,10 +37,14 @@
                 <div class="flex flex-row justify-between">
                     <div>
                         <button type="button" id="button-prev" class="px-3 py-2 border rounded-lg bg-[#653312] hover:opacity-90 transition-opacity" data-carousel-prev onclick="buttonPrevFunc()">
-                            <!-- SVG Code for the button here -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="25" viewBox="0 0 16 25" fill="none">
+                                <path d="M6.40546 12.7252L15.8874 22.2069L13.1783 24.916L0.987305 12.7252L13.1783 0.53418L15.8874 3.24328L6.40546 12.7252Z" fill="#E8E3D4"/>
+                            </svg>
                         </button>
                         <button type="button" id="button-next" class="px-3 py-2 border rounded-lg bg-[#653312] hover:opacity-90 transition-opacity" data-carousel-next onclick="buttonNextFunc()">
-                            <!-- SVG Code for the button here -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="25" viewBox="0 0 16 25" fill="none">
+                                <path d="M9.92169 12.7255L0.439731 3.24374L3.14881 0.534661L15.3398 12.7255L3.1488 24.9165L0.439729 22.2074L9.92169 12.7255Z" fill="#E8E3D4"/>
+                            </svg>
                         </button>
                         <script>
                             let cPosition = 0;

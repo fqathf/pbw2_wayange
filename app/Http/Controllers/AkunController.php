@@ -25,13 +25,20 @@ class AkunController extends Controller
             'role' => 'required'
         ]);
         
-        Akun::create([
+        $akun = Akun::create([
             'email' => $request->email,
             'username' => $request->username,
             'password' => bcrypt($request->password),
             'id_r' => $request->role
         ]);
-        return redirect()->route('admin.login')->with('success', 'Akun created successfully.');
+
+        if($request->role == 1){
+            $akun->assignRole("Admin");
+            return redirect()->route('admin.login')->with('success', 'Akun created successfully.');
+        } else if($request->role == 2){
+            $akun->assignRole("User");
+            
+        }
     }
 
     public function formLogin()

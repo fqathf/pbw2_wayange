@@ -11,6 +11,12 @@ use Illuminate\Support\Facades\Storage;
 
 class WayangController extends Controller
 {
+    // function __construct() 
+    // {
+    //     $this->middleware('role:Admin', ['only' => ['index']]);
+    //     // $this->middleware('permission:wayang-create', ['only' => ['create', 'store']]);
+    // }
+
     public function index()
     {
         $listWayang = Wayang::with('kategori')->get();

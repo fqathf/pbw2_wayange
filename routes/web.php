@@ -18,8 +18,6 @@ Route::post('/quiz/result', [QuizController::class, 'result'])->name('result');
 Route::get('/quizzes', [QuizListController::class, 'index'])->name('quiz.list');
 Route::post('/quiz/result', [QuizResultController::class, 'showResult'])->name('quiz.result');
 
-
-
 Route::group(['middleware' => ['auth', 'role:Admin']], function(){
     Route::get('/admin/wayang', [WayangController::class, 'index'])->name('wayang.index');
     Route::get('/admin/wayang/create', [WayangController::class, 'create'])->name('wayang.create');

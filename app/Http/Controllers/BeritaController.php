@@ -83,4 +83,12 @@ class BeritaController extends Controller
 
         return redirect()->route('berita.index')->with('success', 'Berita deleted successfully.');
     }
+
+    public function indexUser()
+    {
+        $listBerita = Berita::all();
+        return view('berita.index', [
+            'listBerita' => $listBerita
+        ]);
+    }
 }

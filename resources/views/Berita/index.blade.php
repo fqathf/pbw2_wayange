@@ -121,7 +121,6 @@
 <body>
     <div class="container">
         <h1>List Berita</h1>
-        <a href="{{ route('berita.create') }}">Tambah Berita</a>
 
         <table border="1" cellpadding="10">
             <thead>
@@ -131,7 +130,6 @@
                     <th>Tanggal</th>
                     <th>Penulis</th>
                     <th>Gambar</th>
-                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -147,14 +145,6 @@
                             @else
                                 Tidak ada gambar
                             @endif
-                        </td>
-                        <td>
-                            <a href="{{ route('berita.edit', $berita->id) }}">Edit</a>
-                            <form action="{{ route('berita.destroy', $berita->id) }}" method="POST" style="display:inline;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit">Hapus</button>
-                            </form>
                         </td>
                     </tr>
                 @endforeach

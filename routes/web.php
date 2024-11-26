@@ -22,7 +22,7 @@ Route::get('/quizzes', [QuizListController::class, 'index'])->name('quiz.list');
 Route::post('/quiz/result', [QuizResultController::class, 'showResult'])->name('quiz.result');
 
 Route::group(['middleware' => ['auth', 'role:Admin']], function(){
-    Route::get('/admin/wayang', [WayangController::class, 'index'])->name('wayang.index');
+    Route::get('/admin/wayang', [WayangController::class, 'index'])->name('admin.wayang.index');
     Route::get('/admin/wayang/create', [WayangController::class, 'create'])->name('wayang.create');
     Route::post('/admin/wayang/store', [WayangController::class, 'store'])->name('wayang.store');
     Route::get('/admin/wayang/{id}/edit', [WayangController::class, 'edit'])->name('wayang.edit');
@@ -54,11 +54,28 @@ Route::group(['middleware' => ['auth', 'role:Admin']], function(){
     Route::delete('/admin/berita/{id}', [BeritaController::class, 'destroy'])->name('berita.destroy');
 });
 
+// Route akun admin
 Route::get('/admin/register', [AkunController::class, 'formRegister'])->name('admin.register');
 Route::post('/admin/register', [AkunController::class, 'register'])->name('admin.register');
 Route::get('/admin/login', [AkunController::class, 'formLogin'])->name('admin.login');
 Route::post('/admin/login', [AkunController::class, 'login'])->name('admin.login');
 Route::get('/admin/logout', [AkunController::class, 'logout'])->name('admin.logout');
-Auth::routes();
+
+// Route akun user
+Route::get('/register', [AkunController::class, 'formRegisterUser'])->name('register');
+Route::post('/register', [AkunController::class, 'registerUser'])->name('register');
+Route::get('/login', [AkunController::class, 'formLoginUser'])->name('login');
+Route::post('/login', [AkunController::class, 'loginUser'])->name('login');
+Route::get('/wayang', [WayangController::class, 'indexUser'])->name('wayang.index');
+Route::get('/wayang/filter', [WayangController::class, 'filterUser'])->name('wayang.filter');
+Route::get('/wayang/search', [WayangController::class, 'searchUser'])->name('wayang.search');
+Route::get('/berita', [BeritaController::class, 'indexUser'])->name('berita.index');
+Route::get('/museum', [MuseumController::class, 'indexUser'])->name('museum.index');
+
+//Route::group(['middleware' => ['auth', 'role:User|Admin']], function(){
+//
+//});
+
+// Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

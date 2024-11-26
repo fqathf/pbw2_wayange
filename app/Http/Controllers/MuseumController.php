@@ -84,4 +84,12 @@ class MuseumController extends Controller
 
         return redirect()->route('museum.index')->with('success', 'Museum deleted successfully.');
     }
+
+    public function indexUser()
+    {
+        $listMuseum = Museum::all();
+        return view('museum.index', [
+            'listMuseum' => $listMuseum
+        ]);
+    }
 }

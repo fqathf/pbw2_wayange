@@ -38,7 +38,7 @@ class AkunController extends Controller
             return redirect()->route('admin.login')->with('success', 'Akun created successfully.');
         } else if($request->role == 2){
             $akun->assignRole("User");
-
+            return redirect()->route('login')->with('success', 'Akun created successfully.');
         }
     }
 

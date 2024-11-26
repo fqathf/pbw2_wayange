@@ -12,9 +12,9 @@
     <div>
         <h3>Daftar Kategori</h3>
 
-        <a href="{{ route('kategori.create') }}">Tambah Kategori</a>
+        <a href="{{ route('admin.kategori.create') }}">Tambah Kategori</a>
 
-        <form action="{{ route('kategori.search') }}" method="GET">
+        <form action="{{ route('admin.kategori.search') }}" method="GET">
             <input type="text" name="search" placeholder="Cari Kategori..." value="{{ request('search') }}">
             <button type="submit">Cari</button>
         </form>
@@ -25,8 +25,8 @@
                 <li>
                     {{ $kategori->nama_kategori }}
                     <div>
-                        <a href="{{ route('kategori.edit', $kategori->id_k) }}">Edit</a>
-                        <form action="{{ route('kategori.destroy', $kategori->id_k) }}" method="POST">
+                        <a href="{{ route('admin.kategori.edit', $kategori->id_k) }}">Edit</a>
+                        <form action="{{ route('admin.kategori.destroy', $kategori->id_k) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit">Delete</button>

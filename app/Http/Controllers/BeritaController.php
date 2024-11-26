@@ -37,7 +37,7 @@ class BeritaController extends Controller
 
         Berita::create($validateBerita);
 
-        return redirect()->route('berita.index')->with('success', 'Berita created successfully.');
+        return redirect()->route('admin.berita.index')->with('success', 'Berita created successfully.');
     }
 
     public function edit($id)
@@ -68,7 +68,7 @@ class BeritaController extends Controller
 
         Berita::find($id)->update($validateBerita);
 
-        return redirect()->route('berita.index')->with('success', 'Berita updated successfully.');
+        return redirect()->route('admin.berita.index')->with('success', 'Berita updated successfully.');
     }
 
     public function destroy($id)
@@ -81,7 +81,7 @@ class BeritaController extends Controller
 
         $berita->delete();
 
-        return redirect()->route('berita.index')->with('success', 'Berita deleted successfully.');
+        return redirect()->route('admin.berita.index')->with('success', 'Berita deleted successfully.');
     }
 
     public function indexUser()

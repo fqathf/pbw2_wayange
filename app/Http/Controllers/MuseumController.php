@@ -37,7 +37,7 @@ class MuseumController extends Controller
 
         Museum::create($validateMuseum);
 
-        return redirect()->route('museum.index')->with('success', 'Museum created successfully.');
+        return redirect()->route('admin.museum.index')->with('success', 'Museum created successfully.');
     }
 
 
@@ -69,7 +69,7 @@ class MuseumController extends Controller
 
         Museum::find($id)->update($validateMuseum);
 
-        return redirect()->route('museum.index')->with('success', 'Museum updated successfully.');
+        return redirect()->route('admin.museum.index')->with('success', 'Museum updated successfully.');
     }
 
     public function destroy($id)
@@ -82,7 +82,7 @@ class MuseumController extends Controller
 
         $museum->delete();
 
-        return redirect()->route('museum.index')->with('success', 'Museum deleted successfully.');
+        return redirect()->route('admin.museum.index')->with('success', 'Museum deleted successfully.');
     }
 
     public function indexUser()

@@ -64,9 +64,9 @@
 
 <body>
     <h3>Daftar Wayang</h3>
-    <a href="{{ route('wayang.create') }}" type="button">Tambah Wayang</a>
+    <a href="{{ route('admin.wayang.create') }}" type="button">Tambah Wayang</a>
 
-    <form action="{{ route('wayang.search') }}" method="GET" style="margin-bottom: 15px;">
+    <form action="{{ route('admin.wayang.search') }}" method="GET" style="margin-bottom: 15px;">
         <input type="text" name="search" placeholder="Cari Wayang..." value="{{ request('search') }}"
             style="padding: 8px; font-size: 16px; width: 200px;">
         <button type="submit"
@@ -74,8 +74,8 @@
             Cari
         </button>
     </form>
-    
-    <form id="filterForm" action="{{ route('wayang.filter') }}" method="GET">
+
+    <form id="filterForm" action="{{ route('admin.wayang.filter') }}" method="GET">
         <select name="kategori" id="kategoriSelect" onchange="document.getElementById('filterForm').submit()">
             <option value="0" {{ request('kategori') == 0 ? 'selected' : '' }}>Pilih Kategori</option>
             @foreach ($listKategori as $kategori)
@@ -85,8 +85,8 @@
             @endforeach
         </select>
     </form>
-    
-    
+
+
 
     <table>
         <thead>
@@ -108,8 +108,8 @@
                     <td><img src="{{ asset('storage/' . $w->gambar_wayang) }}" alt="Gambar Wayang" width="300px"></td>
                     <td>{{ $w->kategori->nama_kategori }}</td>
                     <td>
-                        <a href="{{ route('wayang.edit', $w->id) }}">Edit</a>
-                        <form action="{{ route('wayang.destroy', $w->id) }}" method="POST">
+                        <a href="{{ route('admin.wayang.edit', $w->id) }}">Edit</a>
+                        <form action="{{ route('admin.wayang.destroy', $w->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit">Hapus</button>

@@ -85,12 +85,12 @@
     </style>
 </head>
 <body>
-    <form action="{{ route('wayang.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.wayang.store') }}" method="POST" enctype="multipart/form-data">
         <h2>Tambah Wayang</h2>
         @csrf
         <label for="nama">Nama Wayang</label>
         <input type="text" name="nama_wayang" id="nama">
-        
+
         <label for="judul">Judul Wayang</label>
         <input type="text" name="judul_wayang" id="judul">
 
@@ -99,7 +99,7 @@
 
         <label for="gambar">Gambar Wayang</label>
         <input type="file" name="gambar_wayang" id="gambar" onchange="previewImage()">
-        
+
         <!-- Elemen untuk pratinjau gambar -->
         <img id="imgPreview" class="img-preview" src="#" alt="Pratinjau Gambar">
 

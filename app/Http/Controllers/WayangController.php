@@ -54,7 +54,7 @@ class WayangController extends Controller
 
         Wayang::create($validateWayang);
 
-        return redirect()->route('wayang.index')->with('success', 'Wayang created successfully.');
+        return redirect()->route('admin.wayang.index')->with('success', 'Wayang created successfully.');
     }
 
     public function edit($id)
@@ -84,7 +84,7 @@ class WayangController extends Controller
 
         Wayang::find($id)->update($validateWayang);
 
-        return redirect()->route('wayang.index')->with('success', 'Wayang updated successfully.');
+        return redirect()->route('admin.wayang.index')->with('success', 'Wayang updated successfully.');
     }
 
     public function destroy($id)
@@ -98,7 +98,7 @@ class WayangController extends Controller
         $listWayang->delete();
         Wayang::destroy($id);
 
-        return redirect()->route('wayang.index')->with('success', 'Wayang deleted successfully.');
+        return redirect()->route('admin.wayang.index')->with('success', 'Wayang deleted successfully.');
     }
 
     public function search(Request $wayangRequest)

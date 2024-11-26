@@ -68,7 +68,7 @@
 </head>
 <body>
     <h3>Daftar Museum</h3>
-    <a href="{{ route('museum.create') }}" type="button">Tambah Museum</a>
+    <a href="{{ route('admin.museum.create') }}" type="button">Tambah Museum</a>
     <table>
         <thead>
             <tr>
@@ -95,8 +95,8 @@
                         @endif
                     </td>
                     <td>
-                        <a href="{{ route('museum.edit', $museum->id) }}">Edit</a>
-                        <form action="{{ route('museum.destroy', $museum->id) }}" method="POST" style="display:inline;">
+                        <a href="{{ route('admin.museum.edit', $museum->id) }}">Edit</a>
+                        <form action="{{ route('admin.museum.destroy', $museum->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit">Hapus</button>

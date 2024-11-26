@@ -85,7 +85,7 @@
     </style>
 </head>
 <body>
-    <form action="{{ route('museum.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.museum.store') }}" method="POST" enctype="multipart/form-data">
         <h2>Tambah Museum</h2>
         @csrf
         <label for="nama_museum">Nama Museum</label>

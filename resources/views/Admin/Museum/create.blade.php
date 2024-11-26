@@ -82,50 +82,122 @@
             border-radius: 4px;
             display: none;
         }
+
+        #map {
+            height: 300px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body>
-    <form action="{{ route('admin.museum.store') }}" method="POST" enctype="multipart/form-data">
-        <h2>Tambah Museum</h2>
-        @csrf
-        <label for="nama_museum">Nama Museum</label>
-        <input type="text" name="nama_museum" id="nama_museum">
+<form action="{{ route('admin.museum.store') }}" method="POST" enctype="multipart/form-data">
+    <h2>Tambah Museum</h2>
+    @csrf
+    <label for="nama_museum">Nama Museum</label>
+    <input type="text" name="nama_museum" id="nama_museum">
 
-        <label for="daerah_museum">Daerah Museum</label>
-        <input type="text" name="daerah_museum" id="daerah_museum">
+    <label for="daerah_museum">Daerah Museum</label>
+    <input type="text" name="daerah_museum" id="daerah_museum" placeholder="Cari lokasi museum di peta" onFocus="geolocate()">
 
-        <label for="judul_museum">Judul Museum</label>
-        <input type="text" name="judul_museum" id="judul_museum">
+    <label for="judul_museum">Judul Museum</label>
+    <input type="text" name="judul_museum" id="judul_museum">
 
-        <label for="isi_museum">Isi Museum</label>
-        <textarea name="isi_museum" id="isi_museum"></textarea>
+    <label for="isi_museum">Isi Museum</label>
+    <textarea name="isi_museum" id="isi_museum"></textarea>
 
-        <label for="gambar_museum">Gambar Museum</label>
-        <input type="file" name="gambar_museum" id="gambar_museum" onchange="previewImage()">
+    <label for="gambar_museum">Gambar Museum</label>
+    <input type="file" name="gambar_museum" id="gambar_museum" onchange="previewImage()">
 
-        <!-- Elemen untuk pratinjau gambar -->
-        <img id="imgPreview" class="img-preview" src="#" alt="Pratinjau Gambar">
-        <button type="submit">Tambah</button>
-    </form>
+    <!-- Elemen untuk pratinjau gambar -->
+    <img id="imgPreview" class="img-preview" src="#" alt="Pratinjau Gambar">
 
-    <script>
-        function previewImage() {
-            const input = document.getElementById("gambar");
-            const imgPreview = document.getElementById("imgPreview");
+    <!-- Peta -->
+    <div id="map"></div>
 
-            if (input.files && input.files[0]) {
-                const reader = new FileReader();
+    <button type="submit">Tambah</button>
+</form>
 
-                reader.onload = function(e) {
-                    imgPreview.src = e.target.result;
-                    imgPreview.style.display = "block";
-                };
+<script>
+    let map;
+    let marker;
+    let autocomplete;
 
-                reader.readAsDataURL(input.files[0]);
-            } else {
-                imgPreview.style.display = "none";
-            }
+    function initMap() {
+        // Membuat peta di lokasi default
+        map = new google.maps.Map(document.getElementById("map"), {
+            center: {lat: -6.200000, lng: 106.816666}, // Jakarta
+            zoom: 13
+        });
+
+        // Autocomplete untuk input daerah museum
+        autocomplete = new google.maps.places.Autocomplete(
+            document.getElementById("daerah_museum"),
+            { types: ['geocode'] } // hanya lokasi (geocode) yang disarankan
+        );
+        autocomplete.addListener("place_changed", onPlaceChanged);
+    }
+
+    function onPlaceChanged() {
+        const place = autocomplete.getPlace();
+        if (!place.geometry) {
+            return;
         }
-    </script>
+
+        // Menandai lokasi yang dipilih pada peta
+        if (place.geometry.viewport) {
+            map.fitBounds(place.geometry.viewport);
+        } else {
+            map.setCenter(place.geometry.location);
+            map.setZoom(17);
+        }
+
+        if (marker) {
+            marker.setMap(null);
+        }
+
+        marker = new google.maps.Marker({
+            position: place.geometry.location,
+            map: map
+        });
+
+        // Menyimpan alamat daerah museum
+        document.getElementById("daerah_museum").value = place.formatted_address;
+    }
+
+    function geolocate() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                const geolocation = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                map.setCenter(geolocation);
+                map.setZoom(15);
+            });
+        }
+    }
+
+    function previewImage() {
+        const input = document.getElementById("gambar_museum");
+        const imgPreview = document.getElementById("imgPreview");
+
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                imgPreview.src = e.target.result;
+                imgPreview.style.display = "block";
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        } else {
+            imgPreview.style.display = "none";
+        }
+    }
+</script>
+
+<!-- Google Maps API -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4Cdhj3Q9efRO0NRa8qLoxW7-v41xixVI&libraries=places&callback=initMap" async defer></script>
 </body>
 </html>

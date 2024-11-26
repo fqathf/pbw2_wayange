@@ -198,6 +198,6 @@
 </script>
 
 <!-- Google Maps API -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4Cdhj3Q9efRO0NRa8qLoxW7-v41xixVI&libraries=places&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=(masukin key gmaps api)&libraries=places&callback=initMap" async defer></script>
 </body>
 </html>

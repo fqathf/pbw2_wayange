@@ -1,4 +1,4 @@
-<form action="{{ route('kategori.update', $kategori->id_k) }}" method="POST">
+<form action="{{ route('admin.kategori.update', $kategori->id_k) }}" method="POST">
     @csrf
     @method('PUT')
 

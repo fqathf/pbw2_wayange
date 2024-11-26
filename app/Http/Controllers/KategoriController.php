@@ -26,7 +26,7 @@ class KategoriController extends Controller
         ]);
         Kategori::create($validateKategori);
 
-        return redirect()->route('kategori.index')->with('success', 'Kategori created successfully.');
+        return redirect()->route('admin.kategori.index')->with('success', 'Kategori created successfully.');
     }
 
     public function edit($id_k)
@@ -44,7 +44,7 @@ class KategoriController extends Controller
 
     Kategori::where('id_k', $id_k)->update($validateKategori);
 
-    return redirect()->route('kategori.index')->with('success', 'Kategori updated successfully.');
+    return redirect()->route('admin.kategori.index')->with('success', 'Kategori updated successfully.');
 }
 
 
@@ -52,7 +52,7 @@ class KategoriController extends Controller
     {
         Kategori::where('id_k', $id)->delete();
 
-        return redirect()->route('kategori.index')->with('success', 'Kategori deleted successfully.');
+        return redirect()->route('admin.kategori.index')->with('success', 'Kategori deleted successfully.');
     }
 
     public function search(Request $kategoriRequest)

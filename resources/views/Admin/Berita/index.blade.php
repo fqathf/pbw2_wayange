@@ -121,7 +121,7 @@
 <body>
     <div class="container">
         <h1>List Berita</h1>
-        <a href="{{ route('berita.create') }}">Tambah Berita</a>
+        <a href="{{ route('admin.berita.create') }}">Tambah Berita</a>
 
         <table border="1" cellpadding="10">
             <thead>
@@ -149,8 +149,8 @@
                             @endif
                         </td>
                         <td>
-                            <a href="{{ route('berita.edit', $berita->id) }}">Edit</a>
-                            <form action="{{ route('berita.destroy', $berita->id) }}" method="POST" style="display:inline;">
+                            <a href="{{ route('admin.berita.edit', $berita->id) }}">Edit</a>
+                            <form action="{{ route('admin.berita.destroy', $berita->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit">Hapus</button>

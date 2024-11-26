@@ -96,7 +96,7 @@
 <body>
     <div class="container">
         <h1>Create Berita</h1>
-        <form action="{{ route('berita.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.berita.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <label for="judul_berita">Judul Berita</label>
             <input type="text" id="judul_berita" name="judul_berita" value="{{ old('judul_berita') }}" required>

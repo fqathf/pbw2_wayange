@@ -101,7 +101,7 @@
             <p style="color: green; text-align: center;">{{ session('success') }}</p>
         @endif
 
-        <form action="{{ route('berita.update', $berita->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.berita.update', $berita->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 

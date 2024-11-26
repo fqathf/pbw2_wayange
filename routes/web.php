@@ -23,35 +23,35 @@ Route::post('/quiz/result', [QuizResultController::class, 'showResult'])->name('
 
 Route::group(['middleware' => ['auth', 'role:Admin']], function(){
     Route::get('/admin/wayang', [WayangController::class, 'index'])->name('admin.wayang.index');
-    Route::get('/admin/wayang/create', [WayangController::class, 'create'])->name('wayang.create');
-    Route::post('/admin/wayang/store', [WayangController::class, 'store'])->name('wayang.store');
-    Route::get('/admin/wayang/{id}/edit', [WayangController::class, 'edit'])->name('wayang.edit');
-    Route::put('/admin/wayang/{id}', [WayangController::class, 'update'])->name('wayang.update');
-    Route::delete('/admin/wayang/{id}', [WayangController::class, 'destroy'])->name('wayang.destroy');
-    Route::get('/admin/wayang/filter', [WayangController::class, 'filter'])->name('wayang.filter');
-    Route::get('/admin/wayang/search', [WayangController::class, 'search'])->name('wayang.search');
+    Route::get('/admin/wayang/create', [WayangController::class, 'create'])->name('admin.wayang.create');
+    Route::post('/admin/wayang/store', [WayangController::class, 'store'])->name('admin.wayang.store');
+    Route::get('/admin/wayang/{id}/edit', [WayangController::class, 'edit'])->name('admin.wayang.edit');
+    Route::put('/admin/wayang/{id}', [WayangController::class, 'update'])->name('admin.wayang.update');
+    Route::delete('/admin/wayang/{id}', [WayangController::class, 'destroy'])->name('admin.wayang.destroy');
+    Route::get('/admin/wayang/filter', [WayangController::class, 'filter'])->name('admin.wayang.filter');
+    Route::get('/admin/wayang/search', [WayangController::class, 'search'])->name('admin.wayang.search');
 
-    Route::get('/admin/kategori', [KategoriController::class, 'index'])->name('kategori.index');
-    Route::get('/admin/kategori/create', [KategoriController::class, 'create'])->name('kategori.create');
-    Route::post('/admin/kategori', [KategoriController::class, 'store'])->name('kategori.store');
-    Route::get('/admin/kategori/{id_k}/edit', [KategoriController::class, 'edit'])->name('kategori.edit');
-    Route::put('/admin/kategori/{id_k}', [KategoriController::class, 'update'])->name('kategori.update');
-    Route::delete('/admin/kategori/{id}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
-    Route::get('/admin/kategori/search', [KategoriController::class, 'search'])->name('kategori.search');
+    Route::get('/admin/kategori', [KategoriController::class, 'index'])->name('admin.kategori.index');
+    Route::get('/admin/kategori/create', [KategoriController::class, 'create'])->name('admin.kategori.create');
+    Route::post('/admin/kategori', [KategoriController::class, 'store'])->name('admin.kategori.store');
+    Route::get('/admin/kategori/{id_k}/edit', [KategoriController::class, 'edit'])->name('admin.kategori.edit');
+    Route::put('/admin/kategori/{id_k}', [KategoriController::class, 'update'])->name('admin.kategori.update');
+    Route::delete('/admin/kategori/{id}', [KategoriController::class, 'destroy'])->name('admin.kategori.destroy');
+    Route::get('/admin/kategori/search', [KategoriController::class, 'search'])->name('admin.kategori.search');
 
-    Route::get('/admin/museum', [MuseumController::class, 'index'])->name('museum.index');
-    Route::get('/admin/museum/create', [MuseumController::class, 'create'])->name('museum.create');
-    Route::post('/admin/museum/store', [MuseumController::class, 'store'])->name('museum.store');
-    Route::get('/admin/museum/{id}/edit', [MuseumController::class, 'edit'])->name('museum.edit');
-    Route::put('/admin/museum/{id}', [MuseumController::class, 'update'])->name('museum.update');
-    Route::delete('/admin/museum/{id}', [MuseumController::class, 'destroy'])->name('museum.destroy');
+    Route::get('/admin/museum', [MuseumController::class, 'index'])->name('admin.museum.index');
+    Route::get('/admin/museum/create', [MuseumController::class, 'create'])->name('admin.museum.create');
+    Route::post('/admin/museum/store', [MuseumController::class, 'store'])->name('admin.museum.store');
+    Route::get('/admin/museum/{id}/edit', [MuseumController::class, 'edit'])->name('admin.museum.edit');
+    Route::put('/admin/museum/{id}', [MuseumController::class, 'update'])->name('admin.museum.update');
+    Route::delete('/admin/museum/{id}', [MuseumController::class, 'destroy'])->name('admin.museum.destroy');
 
-    Route::get('/admin/berita', [BeritaController::class, 'index'])->name('berita.index');
-    Route::get('/admin/berita/create', [BeritaController::class, 'create'])->name('berita.create');
-    Route::post('/admin/berita/store', [BeritaController::class, 'store'])->name('berita.store');
-    Route::get('/admin/berita/{id}/edit', [BeritaController::class, 'edit'])->name('berita.edit');
-    Route::put('/admin/berita/{id}', [BeritaController::class, 'update'])->name('berita.update');
-    Route::delete('/admin/berita/{id}', [BeritaController::class, 'destroy'])->name('berita.destroy');
+    Route::get('/admin/berita', [BeritaController::class, 'index'])->name('admin.berita.index');
+    Route::get('/admin/berita/create', [BeritaController::class, 'create'])->name('admin.berita.create');
+    Route::post('/admin/berita/store', [BeritaController::class, 'store'])->name('admin.berita.store');
+    Route::get('/admin/berita/{id}/edit', [BeritaController::class, 'edit'])->name('admin.berita.edit');
+    Route::put('/admin/berita/{id}', [BeritaController::class, 'update'])->name('admin.berita.update');
+    Route::delete('/admin/berita/{id}', [BeritaController::class, 'destroy'])->name('admin.berita.destroy');
 });
 
 // Route akun admin

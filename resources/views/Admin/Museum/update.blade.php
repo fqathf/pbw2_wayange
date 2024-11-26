@@ -86,7 +86,7 @@
 </head>
 
 <body>
-    <form action="{{ route('museum.update', $museum->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.museum.update', $museum->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <h2>Update Museum</h2>

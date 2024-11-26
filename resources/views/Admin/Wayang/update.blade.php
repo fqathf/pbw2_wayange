@@ -85,24 +85,24 @@
     </style>
 </head>
 <body>
-    <form action="{{ route('wayang.update', $listWayang->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.wayang.update', $listWayang->id) }}" method="POST" enctype="multipart/form-data">
         <h2>Update Wayang</h2>
         @csrf
         @method('PUT')
-        
+
         <label for="nama">Nama</label>
         <input type="text" name="nama_wayang" id="nama" value="{{ $listWayang->nama_wayang }}" required>
-        
+
         <label for="judul">Judul</label>
         <input type="text" name="judul_wayang" id="judul" value="{{ $listWayang->judul_wayang }}" required>
-        
+
         <label for="isi">Isi</label>
         <textarea name="isi_wayang" id="isi" required>{{ $listWayang->isi_wayang }}</textarea>
-        
+
         <label for="gambar">Gambar</label>
         <input type="hidden" name="old_gambar_wayang" value="{{ $listWayang->gambar_wayang }}">
         <input type="file" name="gambar_wayang" id="gambar" onchange="previewImage()">
-        
+
         <!-- Pratinjau gambar lama jika ada -->
         @if ($listWayang->gambar_wayang)
             <p>Gambar saat ini:</p>
@@ -121,7 +121,7 @@
         </select>
 
         <button type="submit">Update</button>
-    </form>    
+    </form>
 
     <script>
         function previewImage() {

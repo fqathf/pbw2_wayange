@@ -6,15 +6,17 @@ use App\Http\Controllers\WayangController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\QuizListController;
 use App\Http\Controllers\QuizResultController;
+use App\Http\Controllers\CharacterController;
 
 Route::get('/', function () {
     return view('landing');
-});
+})->name('landing');
 
 Route::get('/quiz/{id}', [QuizController::class, 'show'])->name('quiz.show');
 Route::post('/quiz/result', [QuizController::class, 'result'])->name('result');
 Route::get('/quizzes', [QuizListController::class, 'index'])->name('quiz.list');
 Route::post('/quiz/result', [QuizResultController::class, 'showResult'])->name('quiz.result');
+Route::get('/character/{id}', [CharacterController::class, 'show'])->name('character.show');
 
 
 // Route::group(['prefix' => 'admin', 'middleware' ['auth'], 'as' => 'admin'], function(){

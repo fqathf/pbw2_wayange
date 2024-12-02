@@ -8,6 +8,8 @@ class Kategori extends Model
 {
     protected $table = 'kategori_wayang';
     protected $fillable = ['id_k', 'nama_kategori'];
+    protected $primaryKey = 'id_k';
+    public $timestamps = false;
 
     public function wayang()
     {

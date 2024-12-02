@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tambah Wayang</title>
+    <title>Update Museum</title>
     <style>
         /* CSS untuk merapikan form */
         body {
@@ -74,7 +75,6 @@
             background-color: #45a049;
         }
 
-        /* CSS untuk pratinjau gambar */
         .img-preview {
             width: 100%;
             max-width: 200px;
@@ -84,37 +84,47 @@
         }
     </style>
 </head>
+
 <body>
-    <form action="{{ route('admin.wayang.store') }}" method="POST" enctype="multipart/form-data">
-        <h2>Tambah Wayang</h2>
+    <form action="{{ route('admin.museum.update', $museum->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <label for="nama">Nama Wayang</label>
-        <input type="text" name="nama_wayang" id="nama">
+        @method('PUT')
+        <h2>Update Museum</h2>
 
-        <label for="judul">Judul Wayang</label>
-        <input type="text" name="judul_wayang" id="judul">
+        <!-- Nama Museum -->
+        <label for="nama_museum">Nama Museum</label>
+        <input type="text" name="nama_museum" value="{{ $museum->nama_museum }}" required>
 
-        <label for="isi">Isi Wayang</label>
-        <textarea name="isi_wayang" id="isi"></textarea>
+        <!-- Daerah Museum -->
+        <label for="daerah_museum">Daerah Museum</label>
+        <input type="text" name="daerah_museum" value="{{ $museum->daerah_museum }}" required>
 
-        <label for="gambar">Gambar Wayang</label>
-        <input type="file" name="gambar_wayang" id="gambar" onchange="previewImage()">
+        <!-- Judul Museum -->
+        <label for="judul_museum">Judul Museum</label>
+        <input type="text" name="judul_museum" value="{{ $museum->judul_museum }}" required>
 
-        <!-- Elemen untuk pratinjau gambar -->
-        <img id="imgPreview" class="img-preview" src="#" alt="Pratinjau Gambar">
+        <!-- Isi Museum -->
+        <label for="isi_museum">Isi Museum</label>
+        <textarea name="isi_museum" required>{{ $museum->isi_museum }}</textarea>
 
-        <label for="kategori">Kategori Wayang</label>
-        <select name="id_kategori" id="kategori">
-            @foreach ($listKategori as $kategori)
-            <option value="{{ $kategori->id_k }}">{{ $kategori->nama_kategori }}</option>
-            @endforeach
-        </select>
-        <button type="submit">Tambah</button>
+        <!-- Gambar Museum -->
+        <label for="gambar_museum">Gambar Museum</label>
+        <input type="file" name="gambar_museum" onchange="previewImage()">
+        <!-- Display existing image -->
+        @if ($museum->gambar_museum)
+            <img id="imgPreview" class="img-preview" src="{{ asset('storage/' . $museum->gambar_museum) }}"
+                alt="Pratinjau Gambar">
+        @else
+            <span>No image uploaded</span>
+        @endif
+
+
+        <button type="submit">Update</button>
     </form>
 
     <script>
         function previewImage() {
-            const input = document.getElementById("gambar");
+            const input = document.querySelector("input[name='gambar_museum']");
             const imgPreview = document.getElementById("imgPreview");
 
             if (input.files && input.files[0]) {
@@ -126,10 +136,9 @@
                 };
 
                 reader.readAsDataURL(input.files[0]);
-            } else {
-                imgPreview.style.display = "none";
             }
         }
     </script>
 </body>
+
 </html>

@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Daftar Wayang</title>
+    <title>Daftar Museum</title>
     <style>
         /* CSS untuk merapikan tabel */
         table {
@@ -59,65 +58,53 @@
         button:hover {
             background-color: #d32f2f;
         }
+
+        /* CSS untuk gambar */
+        .img-preview {
+            max-width: 200px;
+            border-radius: 4px;
+        }
     </style>
 </head>
-
 <body>
-    <h3>Daftar Wayang</h3>
-    <a href="{{ route('admin.wayang.create') }}" type="button">Tambah Wayang</a>
-
-    <form action="{{ route('admin.wayang.search') }}" method="GET" style="margin-bottom: 15px;">
-        <input type="text" name="search" placeholder="Cari Wayang..." value="{{ request('search') }}"
-            style="padding: 8px; font-size: 16px; width: 200px;">
-        <button type="submit"
-            style="padding: 8px 12px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer;">
-            Cari
-        </button>
-    </form>
-
-    <form id="filterForm" action="{{ route('admin.wayang.filter') }}" method="GET">
-        <select name="kategori" id="kategoriSelect" onchange="document.getElementById('filterForm').submit()">
-            <option value="0" {{ request('kategori') == 0 ? 'selected' : '' }}>Pilih Kategori</option>
-            @foreach ($listKategori as $kategori)
-                <option value="{{ $kategori->id_k }}" {{ request('kategori') == $kategori->id_k ? 'selected' : '' }}>
-                    {{ $kategori->nama_kategori }}
-                </option>
-            @endforeach
-        </select>
-    </form>
-
-
-
+    <h3>Daftar Museum</h3>
+    <a href="{{ route('admin.museum.create') }}" type="button">Tambah Museum</a>
     <table>
         <thead>
             <tr>
                 <th>Nama</th>
+                <th>Daerah</th>
                 <th>Judul</th>
-                <th>Isi</th>
+                <th>Deskripsi</th>
                 <th>Gambar</th>
-                <th>Kategori</th>
                 <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($listWayang as $w)
+            @foreach ($listMuseum as $museum)
                 <tr>
-                    <td>{{ $w->nama_wayang }}</td>
-                    <td>{{ $w->judul_wayang }}</td>
-                    <td>{{ $w->isi_wayang }}</td>
-                    <td><img src="{{ asset('storage/' . $w->gambar_wayang) }}" alt="Gambar Wayang" width="300px"></td>
-                    <td>{{ $w->kategori->nama_kategori }}</td>
+                    <td>{{ $museum->nama_museum }}</td>
+                    <td>{{ $museum->daerah_museum }}</td>
+                    <td>{{ $museum->judul_museum }}</td>
+                    <td>{{ $museum->isi_museum }}</td>
                     <td>
-                        <a href="{{ route('admin.wayang.edit', $w->id) }}">Edit</a>
-                        <form action="{{ route('admin.wayang.destroy', $w->id) }}" method="POST">
+                        @if ($museum->gambar_museum)
+                            <img src="{{ asset('storage/' . $museum->gambar_museum) }}" alt="Gambar Museum" class="img-preview">
+                        @else
+                            <span>No Image</span>
+                        @endif
+                    </td>
+                    <td>
+                        <a href="{{ route('admin.museum.edit', $museum->id) }}">Edit</a>
+                        <form action="{{ route('admin.museum.destroy', $museum->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit">Hapus</button>
                         </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
 </body>
-
 </html>

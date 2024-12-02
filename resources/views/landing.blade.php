@@ -678,12 +678,174 @@
           </div>
           <!-- Title end -->
           <!-- carousel -->
-          <div id="default-carousel" class="relative w-full mt-10" data-carousel="slide">
-              <!-- Carousel wrapper -->
-              <div class="relative h-56 w-40 overflow-hidden rounded-lg md:h-96 md:w-64 mx-20">
+          <div
+            class="flex justify-center items-center h-[24rem] sm:h-[30rem] sm:my-12"
+          >
+            <div class="flex justify-center items-center w-[90vw] sm:w-[80vw]">
+              <!-- Slider main container -->
+              <div
+                class="swiper swiper2 flex justify-center items-center flex-col overflow-hidden w-full p-10"
+              >
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper font-['Poppins'] pb-20">
+                  <!-- Slides -->
+                  <div
+                    class="swiper-slide rounded p-3 bg-cover bg-[url('assets/img/gatotkaca.webp')] w-[150px] h-[225px] sm:w-[300px] sm:h-[450px]"
+                  >
+                    <a href="pages/gatotkaca.html" class="absolute -z-10 w-full h-full"></a>
+                    <div
+                      class="absolute left-0 sm:left-4 bottom-4 flex items-end"
+                    >
+                      <a
+                        class="w-[80%] sm:w-[200px] p-3 bg-[#ffffffca]"
+                        href="pages/gatotkaca.html"
+                      >
+                        <p class="text-[10px] sm:text-[16px] sm:font-[16px]">
+                          01 <i class="fa-solid fa-minus"></i> Jawa Tengah
+                        </p>
+                        <p
+                          class="sm:text-[28px] text-sm py-2 font-semibold text-neutral-700"
+                        >
+                          Gatotkaca
+                        </p>
+                      </a>
+                      <a
+                        class="bg-yellow-600 carousel-anchor px-3 h-10 items-center justify-center hover:bg-[#653312] hidden"
+                        href="pages/gatotkaca.html"
+                        ><span class="icon-navigate"
+                          ><i
+                            class="fas fa-arrow-right"
+                            style="color: #fff"
+                          ></i></span
+                      ></a>
+                    </div>
+                  </div>
+                  <div
+                    class="swiper-slide rounded p-3 bg-cover bg-[url('assets/img/arjuna.webp')] w-[150px] h-[225px] sm:w-[300px] sm:h-[450px]"
+                  >
+                    <a href="pages/arjuna.html" class="absolute -z-10 w-full h-full"></a>
+                    <div
+                      class="absolute left-0 sm:left-4 bottom-4 flex items-end"
+                    >
+                      <a
+                        class="w-[80%] sm:w-[200px] p-3 bg-[#ffffffca]"
+                        href="pages/arjuna.html"
+                      >
+                        <p class="text-[10px] sm:text-[16px] sm:font-[16px]">
+                          02 <i class="fa-solid fa-minus"></i> Jawa Tengah
+                        </p>
+                        <p
+                          class="sm:text-[28px] text-sm py-2 font-semibold text-neutral-700"
+                        >
+                          Arjuna
+                        </p>
+                      </a>
+                      <a
+                        class="bg-yellow-600 carousel-anchor px-3 h-10 items-center justify-center hover:bg-[#653312] hidden"
+                        href="pages/arjuna.html"
+                        ><span class="icon-navigate"
+                          ><i
+                            class="fas fa-arrow-right"
+                            style="color: #fff"
+                          ></i></span
+                      ></a>
+                    </div>
+                  </div>
+                  <div
+                    class="swiper-slide rounded p-3 bg-cover bg-[url('assets/img/nakula.webp')] w-[150px] h-[225px] sm:w-[300px] sm:h-[450px]"
+                  >
+                    <a href="pages/nakula.html" class="absolute -z-10 w-full h-full"></a>
+                    <div
+                      class="absolute left-0 sm:left-4 bottom-4 flex items-end"
+                    >
+                      <a
+                        class="w-[80%] sm:w-[200px] p-3 bg-[#ffffffca]"
+                        href="pages/nakula.html"
+                      >
+                        <p class="text-[10px] sm:text-[16px] sm:font-[16px]">
+                          03 <i class="fa-solid fa-minus"></i> Jawa Tengah
+                        </p>
+                        <p
+                          class="sm:text-[28px] text-sm py-2 font-semibold text-neutral-700"
+                        >
+                          Nakula
+                        </p>
+                      </a>
+                      <a
+                        class="bg-yellow-600 carousel-anchor px-3 h-10 items-center justify-center hover:bg-[#653312] hidden"
+                        href="pages/nakula.html"
+                        ><span class="icon-navigate"
+                          ><i
+                            class="fas fa-arrow-right"
+                            style="color: #fff"
+                          ></i></span
+                      ></a>
+                    </div>
+                  </div>
+                  <div
+                    class="swiper-slide rounded p-3 bg-cover bg-[url('assets/img/sadewa.webp')] w-[150px] h-[225px] sm:w-[300px] sm:h-[450px]"
+                  >
+                    <a href="pages/sadewa.html" class="absolute -z-10 w-full h-full"></a>
+                    <div
+                      class="absolute left-0 sm:left-4 bottom-4 flex items-end"
+                    >
+                      <a
+                        class="w-[80%] sm:w-[200px] p-3 bg-[#ffffffca]"
+                        href="pages/sadewa.html"
+                      >
+                        <p class="text-[10px] sm:text-[16px] sm:font-[16px]">
+                          04 <i class="fa-solid fa-minus"></i> Jawa Tengah
+                        </p>
+                        <p
+                          class="sm:text-[28px] text-sm py-2 font-semibold text-neutral-700"
+                        >
+                          Sadewa
+                        </p>
+                      </a>
+                      <a
+                        class="bg-yellow-600 carousel-anchor px-3 h-10 items-center justify-center hover:bg-[#653312] hidden"
+                        href="pages/sadewa.html"
+                        ><span class="icon-navigate"
+                          ><i
+                            class="fas fa-arrow-right"
+                            style="color: #fff"
+                          ></i></span
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="flex flex-row justify-center w-40 z-30 absolute sm:left-[38%] bottom-0 sm:bottom-[4rem] items-center"
+                >
+                  <div
+                    id="pagination-sec4"
+                    class="swiper-pagination static flex justify-center items-center"
+                  ></div>
+                  <div
+                    id="swiper-next2"
+                    class="button-tp swip-navigate wow fadeInUp bg-[#EF9344] rounded-full px-4 py-2 sm:flex justify-center hover:bg-[#8c522b] hidden"
+                    data-wow-delay="2s"
+                    tabindex="0"
+                    role="button"
+                    aria-label="Next slide"
+                  >
+                    <span class="icon-navigate"
+                      ><i
+                        class="fa-solid fa-chevron-right"
+                        style="color: #fff"
+                      ></i
+                    ></span>
+                  </div>
+                </div>
               </div>
+            </div>
+          </div>
+          <!-- <div id="default-carousel" class="relative w-full mt-10" data-carousel="slide"> -->
+              <!-- Carousel wrapper -->
+              <!-- <div class="relative h-56 w-40 overflow-hidden rounded-lg md:h-96 md:w-64 mx-20">
+              </div> -->
               <!-- Slider controls -->
-              <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+              <!-- <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
                   <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
                       <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
@@ -698,8 +860,8 @@
                       </svg>
                       <span class="sr-only">Next</span>
                   </span>
-              </button>
-          </div>
+              </button> -->
+          <!-- </div> -->
           <div class="flex justify-center w-full mt-3">
             <a
                 class="button-brown flex flex-row font-[manrope] font-semibold gap-3 items-center w-[160px] justify-center rounded-full stroke-white bg-[#F3F3F3] px-4 py-3 border-4 text-base text-[#653312] shadow hover:bg-[#8c522b] hover:text-white transition-colors focus:outline-none focus:ring active:bg-[#8c522b] md:w-[160px]"
@@ -758,10 +920,184 @@
         </div>
         <!-- Title end -->
         <!-- carousel -->
-        <div id="default-carousel" class="relative w-full mt-10" data-carousel="slide">
-              <!-- Carousel wrapper -->
-              <div class="relative h-56 overflow-hidden rounded-lg md:h-96 md:w-[512px] mx-auto">
+        <div
+          class="flex justify-center items-center h-[24rem] sm:h-[30rem] sm:my-12"
+        >
+          <div class="flex justify-center items-center w-[90vw] sm:w-[80vw]">
+            <!-- Slider main container -->
+            <div
+              class="swiper swiper2 flex justify-center items-center flex-col overflow-hidden w-full p-10"
+            >
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper font-['Poppins'] pb-20">
+                <!-- Slides -->
+                <div
+                  class="swiper-slide rounded flex justify-center w-[150px] h-[225px] sm:w-[300px] sm:h-[450px]"
+                >
+                  <a href="/pages/jakarta.html" class="w-full h-full bg-cover bg-[url('assets/img/museum-jakarta.webp')] rounded absolute -z-10 brightness-50"></a>
+                  <div class="flex flex-col mx-5 m-3 self-end text-white">
+                    <a class="w-full pb-3" href="pages/jakarta.html">
+                      <p
+                        class="sm:text-4xl leading-tight font-medium text-stone-50 font-[playfair]"
+                      >
+                        Museum Wayang Jakarta
+                      </p>
+                      <p class="text-[10px] sm:text-[16px] sm:font-normal">
+                        Jakarta
+                      </p>
+                    </a>
+                    <a
+                      class="border carousel-anchor px-3 h-10 items-center justify-between text-xs font-bold leading-[18px] hover:bg-[#00000020] hidden"
+                      href="pages/jakarta.html"
+                      >Selengkapnya<span class="icon-navigate">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="22"
+                          height="22"
+                          viewBox="0 0 22 22"
+                          fill="none"
+                        >
+                          <path
+                            d="M4.49621 8.87128L4.49609 16.7462H6.24609L6.24618 10.6213L15.1465 10.6212L11.6906 14.0773L12.928 15.3147L18.4964 9.74619L12.928 4.17773L11.6906 5.41517L15.1465 8.87119L4.49621 8.87128Z"
+                            fill="white"
+                          />
+                        </svg> </span
+                    ></a>
+                  </div>
+                </div>
+                <div
+                  class="swiper-slide rounded flex justify-center w-[150px] h-[225px] sm:w-[300px] sm:h-[450px]"
+                >
+                  <a href="pages/banyumas.html" class="w-full h-full bg-cover bg-[url('assets/img/museum-banyumas.webp')] rounded absolute -z-10 brightness-50"></a>
+                  <div class="flex flex-col mx-5 m-3 self-end text-white">
+                    <a class="w-full pb-3" href="pages/banyumas.html">
+                      <p
+                        class="sm:text-4xl leading-tight font-medium text-stone-50 font-[playfair]"
+                      >
+                      Museum Wayang Sendang Mas
+                      </p>
+                      <p class="text-[10px] sm:text-[16px] sm:font-normal">
+                        Jawa Tengah
+                      </p>
+                    </a>
+                    <a
+                      class="border carousel-anchor px-3 h-10 items-center justify-between text-xs font-bold leading-[18px] hover:bg-[#00000020] hidden"
+                      href="pages/banyumas.html"
+                      >Selengkapnya<span class="icon-navigate">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="22"
+                          height="22"
+                          viewBox="0 0 22 22"
+                          fill="none"
+                        >
+                          <path
+                            d="M4.49621 8.87128L4.49609 16.7462H6.24609L6.24618 10.6213L15.1465 10.6212L11.6906 14.0773L12.928 15.3147L18.4964 9.74619L12.928 4.17773L11.6906 5.41517L15.1465 8.87119L4.49621 8.87128Z"
+                            fill="white"
+                          />
+                        </svg> </span
+                    ></a>
+                  </div>
+                </div>
+                <div
+                  class="swiper-slide rounded flex justify-center w-[150px] h-[225px] sm:w-[300px] sm:h-[450px]"
+                >
+                  <a href="pages/wonogiri.html" class="w-full h-full bg-cover bg-[url('assets/img/museum-wonogiri.webp')] rounded absolute -z-10 brightness-50"></a>
+                  <div class="flex flex-col mx-5 m-3 self-end text-white">
+                    <a class="w-full pb-3" href="pages/wonogiri.html">
+                      <p
+                        class="sm:text-4xl leading-tight font-medium text-stone-50 font-[playfair]"
+                      >
+                        Museum Wayang Kulit Wonogiri
+                      </p>
+                      <p class="text-[10px] sm:text-[16px] sm:font-normal">
+                        Jawa Tengah
+                      </p>
+                    </a>
+                    <a
+                      class="border carousel-anchor px-3 h-10 items-center justify-between text-xs font-bold leading-[18px] hover:bg-[#00000020] hidden"
+                      href="pages/wonogiri.html"
+                      >Selengkapnya<span class="icon-navigate">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="22"
+                          height="22"
+                          viewBox="0 0 22 22"
+                          fill="none"
+                        >
+                          <path
+                            d="M4.49621 8.87128L4.49609 16.7462H6.24609L6.24618 10.6213L15.1465 10.6212L11.6906 14.0773L12.928 15.3147L18.4964 9.74619L12.928 4.17773L11.6906 5.41517L15.1465 8.87119L4.49621 8.87128Z"
+                            fill="white"
+                          />
+                        </svg> </span
+                    ></a>
+                  </div>
+                </div>
+                <div
+                  class="swiper-slide rounded flex justify-center w-[150px] h-[225px] sm:w-[300px] sm:h-[450px]"
+                >
+                  <a href="pages/ubud.html" class="w-full h-full bg-cover bg-[url('assets/img/museum-ubud.webp')] rounded absolute -z-10 brightness-50"></a>
+                  <div class="flex flex-col mx-5 m-3 self-end text-white">
+                    <a class="w-full pb-3" href="pages/ubud.html">
+                      <p
+                        class="sm:text-4xl leading-tight font-medium text-stone-50 font-[playfair]"
+                      >
+                        Museum Wayang Ubud
+                      </p>
+                      <p class="text-[10px] sm:text-[16px] sm:font-normal">
+                        Bali
+                      </p>
+                    </a>
+                    <a
+                      class="border carousel-anchor px-3 h-10 items-center justify-between text-xs font-bold leading-[18px] hover:bg-[#00000020] hidden"
+                      href="pages/ubud.html"
+                      >Selengkapnya<span class="icon-navigate">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="22"
+                          height="22"
+                          viewBox="0 0 22 22"
+                          fill="none"
+                        >
+                          <path
+                            d="M4.49621 8.87128L4.49609 16.7462H6.24609L6.24618 10.6213L15.1465 10.6212L11.6906 14.0773L12.928 15.3147L18.4964 9.74619L12.928 4.17773L11.6906 5.41517L15.1465 8.87119L4.49621 8.87128Z"
+                            fill="white"
+                          />
+                        </svg> </span
+                    ></a>
+                  </div>
+                </div>
               </div>
+              <div
+                class="flex flex-row justify-center w-40 z-30 absolute sm:left-[38%] bottom-0 sm:bottom-[4rem] items-center"
+              >
+                <div
+                  id="pagination-sec4"
+                  class="swiper-pagination static flex justify-center items-center"
+                ></div>
+                <div
+                  id="swiper-next2"
+                  class="button-tp swip-navigate wow fadeInUp bg-[#EF9344] rounded-full px-4 py-2 sm:flex justify-center hover:bg-[#8c522b] hidden"
+                  data-wow-delay="2s"
+                  tabindex="0"
+                  role="button"
+                  aria-label="Next slide"
+                >
+                  <span class="icon-navigate"
+                    ><i
+                      class="fa-solid fa-chevron-right"
+                      style="color: #fff"
+                    ></i
+                  ></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div id="default-carousel" class="relative w-full mt-10" data-carousel="slide"> -->
+              <!-- Carousel wrapper -->
+              <!-- <div class="relative h-56 overflow-hidden rounded-lg md:h-96 md:w-[512px] mx-auto">
+              </div> -->
               <!-- Slider controls -->
               <!-- <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
                   <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
@@ -779,7 +1115,7 @@
                       <span class="sr-only">Next</span>
                   </span>
               </button> -->
-          </div>
+          <!-- </div> -->
           <div class="flex justify-center w-full mt-3">
             <a
                 class="button-brown flex flex-row font-[manrope] font-semibold gap-3 items-center w-[160px] justify-center rounded-full stroke-white bg-[#F3F3F3] px-4 py-3 border-4 text-base text-[#653312] shadow hover:bg-[#8c522b] hover:text-white transition-colors focus:outline-none focus:ring active:bg-[#8c522b] md:w-[160px]"
@@ -794,9 +1130,7 @@
     </section>
     <!-- Section 4 end -->
     <!-- Section 4 start -->
-    <section id="berita"
-      class="py-20 flex flex-col justify-center items-center"
-    >
+    <section id="berita" class="py-20 flex flex-col justify-center items-center">
       <p
         class="text-[#653312] text-2xl sm:text-[48px] not-italic mt-0 text-center font-['Playfair_Display_SC',_serif] font-bold leading-[58px] mb-0 tracking-[0px] normal-case"
       >
@@ -807,6 +1141,142 @@
       >
         Berikut merupakan beberapa berita dan artikel seputar wayang
       </p>
+      <div class="flex flex-wrap flex-row justify-center items-start mt-10 gap-8">
+        <a href="https://damarcreative.medium.com/wayang-characteristics-of-wayang-kulit-characters-seeing-cultural-values-in-the-story-22d6f9fe6330"
+          target="_blank"
+          class="berita col-3 flex flex-col max-w-[280px] font-[inter]"
+        >
+          <div
+            class="berita-img h-60 bg-cover bg-[url('assets/img/berita-1.webp')] hover:bg-[length:200%] hover:brightness-75"
+            alt=""
+          ></div>
+          <p class="text-[#653312] text-sm font-semibold leading-tight mt-8">
+            Damar Jati • 3 Mei 2023
+          </p>
+          <div class="flex flex-row justify-between my-3">
+            <h1 class="text-[#552A23] text-2xl font-semibold">
+              Wayang Characteristics of Wayang Kulit Characters
+            </h1>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M7 17L17 7M17 7H7M17 7V17"
+                stroke="#101828"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <p class="leading-normal text-base font-normal text-gray-500">
+            In Indonesian traditional art, wayang kulit is one of the most
+            popular art forms. The shadow puppets depict epic tales from the
+            Ramayana...
+          </p>
+        </a>
+        <a href="https://medium.com/@nurikautari14/wayang-thengul-dan-tari-thengul-kebudayaan-asal-bojonegoro-4d819bf05031" target="_blank" class="berita col-3 flex flex-col max-w-[280px] font-[inter]">
+          <div
+            class="berita-img h-60 bg-cover bg-[url('assets/img/berita-2.webp')] hover:bg-[length:135%]"
+            alt=""
+          ></div>
+          <p class="text-[#653312] text-sm font-semibold leading-tight mt-8">
+            Nurika Utari • 11 Mar 2018
+          </p>
+          <div class="flex flex-row justify-between my-3">
+            <h1 class="text-[#552A23] text-2xl font-semibold">
+              Wayang Thengul dan Tari Thengul, Kebudayaan Asal Bojonegoro
+            </h1>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M7 17L17 7M17 7H7M17 7V17"
+                stroke="#101828"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <p class="leading-normal text-base font-normal text-gray-500">
+            Wayang Thengul dan Tari Thengul, Kebudayaan Asal Bojonegoro Konsep
+            budaya secara luas adalah proses kehidupan sehari-hari...
+          </p>
+        </a>
+        <a href="https://medium.com/@wayangsawahku/asli-kulonprogo-sejarah-sawal-terbentuknya-kesenian-wayang-sawah-27fe7be3e161" target="_blank" class="berita col-3 flex flex-col max-w-[280px] font-[inter]">
+          <div
+            class="berita-img h-60 bg-cover bg-[url('assets/img/berita-3.webp')] hover:bg-[length:140%]"
+            alt=""
+          ></div>
+          <p class="text-[#653312] text-sm font-semibold leading-tight mt-8">
+            Sinau Wayang Sawah • 24 Jan 2019
+          </p>
+          <div class="flex flex-row justify-between my-3">
+            <h1 class="text-[#552A23] text-2xl font-semibold">
+              Sejarah awal terbentuknya Kesenian Wayang Sawah
+            </h1>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M7 17L17 7M17 7H7M17 7V17"
+                stroke="#101828"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <p class="leading-normal text-base font-normal text-gray-500">
+            Wayang sawah lahir berawal dari keprihatinan masyarakat Dusun Dobangsan dan kelompok tani akan sikap para petani dalam...
+          </p>
+        </a>
+        <a href="https://medium.com/@sukmadwiarum9/kebudayaan-wayang-timplong-khas-kabupaten-nganjuk-c25792407ece" target="_blank" class="berita col-3 flex flex-col max-w-[280px] font-[inter]">
+          <div
+            class="berita-img h-60 bg-cover bg-[url('assets/img/berita-4.webp')] hover:bg-[length:170%]"
+            alt=""
+          ></div>
+          <p class="text-[#653312] text-sm font-semibold leading-tight mt-8">
+            Sukma Dwi Arum • 11 Mar 2018
+          </p>
+          <div class="flex flex-row justify-between my-3">
+            <h1 class="text-[#552A23] text-2xl font-semibold">
+              Kebudayaan Wayang Timplong Khas Kabupaten Nganjuk
+            </h1>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M7 17L17 7M17 7H7M17 7V17"
+                stroke="#101828"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <p class="leading-normal text-base font-normal text-gray-500">
+            Wayang Timplong merupakan salah satu kebudayaan yang ada di kabupaten nganjuk. Wayang ini...
+          </p>
+        </a>
+      </div>
       <div class="flex flex-wrap flex-row justify-center items-start mt-10 gap-8">
       </div>
     </section>
@@ -870,7 +1340,95 @@
     </script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
     <!-- main JS  -->
-    <script type="text/javascript" src="script/swiper.js"></script>
-    <script type="text/javascript" src="script/navFunc.js"></script>
+    <!-- <script type="text/javascript" src="script/swiper.js"></script>
+    <script type="text/javascript" src="script/navFunc.js"></script> -->
+    <script type="module">
+    import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs'
+      // Vanilla JS
+window.onscroll = function () { scrollFunction() };
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+
+        document.getElementById("navbar").style.background = "#fff";
+    } else {
+
+        document.getElementById("navbar").style.background = "none";
+    }
+}
+
+function burgerClick() {
+    document.getElementById("navbar").style.background = "#fff";
+}
+
+//Swiper JS 
+const swiper = new Swiper('.swiper1', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+
+    slidesPerView: 2,
+    spaceBetween: 30,
+
+    // Navigation arrows
+    navigation: {
+        nextEl: '#swiper-next1',
+        prevEl: '#swiper-prev1',
+    },
+});
+//Swiper JS Karakter
+const swiper2 = new Swiper('.swiper2', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+
+    slidesPerView: 2,
+    spaceBetween: 40,
+    breakpoints: {
+        // when window width is >= 640px
+        640: {
+          slidesPerView: 3,
+          spaceBetween: 40
+        }
+    },
+
+    // Navigation arrows
+    navigation: {
+        nextEl: '#swiper-next2',
+        prevEl: '#swiper-prev2',
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+});
+
+//Swiper JS Museum
+const swiper3 = new Swiper('.swiper3', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+
+    slidesPerView: 2,
+    spaceBetween: 40,
+    breakpoints: {
+        // when window width is >= 640px
+        640: {
+          slidesPerView: 4,
+          spaceBetween: 40
+        }
+    },
+
+    // Navigation arrows
+    navigation: {
+        nextEl: '#swiper-next3',
+        prevEl: '#swiper-prev3',
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+});
+    </script>
   </body>
 </html>

@@ -63,61 +63,50 @@
 </head>
 
 <body>
-    <h3>Daftar Wayang</h3>
-    <a href="{{ route('wayang.create') }}" type="button">Tambah Wayang</a>
+<h3>Daftar Wayang</h3>
 
-    <form action="{{ route('wayang.search') }}" method="GET" style="margin-bottom: 15px;">
-        <input type="text" name="search" placeholder="Cari Wayang..." value="{{ request('search') }}"
-            style="padding: 8px; font-size: 16px; width: 200px;">
-        <button type="submit"
+<form action="{{ route('wayang.search') }}" method="GET" style="margin-bottom: 15px;">
+    <input type="text" name="search" placeholder="Cari Wayang..." value="{{ request('search') }}"
+           style="padding: 8px; font-size: 16px; width: 200px;">
+    <button type="submit"
             style="padding: 8px 12px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer;">
-            Cari
-        </button>
-    </form>
-    
-    <form id="filterForm" action="{{ route('wayang.filter') }}" method="GET">
-        <select name="kategori" id="kategoriSelect" onchange="document.getElementById('filterForm').submit()">
-            <option value="0" {{ request('kategori') == 0 ? 'selected' : '' }}>Pilih Kategori</option>
-            @foreach ($listKategori as $kategori)
-                <option value="{{ $kategori->id_k }}" {{ request('kategori') == $kategori->id_k ? 'selected' : '' }}>
-                    {{ $kategori->nama_kategori }}
-                </option>
-            @endforeach
-        </select>
-    </form>
-    
-    
+        Cari
+    </button>
+</form>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Nama</th>
-                <th>Judul</th>
-                <th>Isi</th>
-                <th>Gambar</th>
-                <th>Kategori</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($listWayang as $w)
-                <tr>
-                    <td>{{ $w->nama_wayang }}</td>
-                    <td>{{ $w->judul_wayang }}</td>
-                    <td>{{ $w->isi_wayang }}</td>
-                    <td><img src="{{ asset('storage/' . $w->gambar_wayang) }}" alt="Gambar Wayang" width="300px"></td>
-                    <td>{{ $w->kategori->nama_kategori }}</td>
-                    <td>
-                        <a href="{{ route('wayang.edit', $w->id) }}">Edit</a>
-                        <form action="{{ route('wayang.destroy', $w->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit">Hapus</button>
-                        </form>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
+<form id="filterForm" action="{{ route('wayang.filter') }}" method="GET">
+    <select name="kategori" id="kategoriSelect" onchange="document.getElementById('filterForm').submit()">
+        <option value="0" {{ request('kategori') == 0 ? 'selected' : '' }}>Pilih Kategori</option>
+        @foreach ($listKategori as $kategori)
+        <option value="{{ $kategori->id_k }}" {{ request('kategori') == $kategori->id_k ? 'selected' : '' }}>
+        {{ $kategori->nama_kategori }}
+        </option>
+        @endforeach
+    </select>
+</form>
+
+<table>
+    <thead>
+    <tr>
+        <th>Nama</th>
+        <th>Judul</th>
+        <th>Isi</th>
+        <th>Gambar</th>
+        <th>Kategori</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach ($listWayang as $w)
+    <tr>
+        <td>{{ $w->nama_wayang }}</td>
+        <td>{{ $w->judul_wayang }}</td>
+        <td>{{ $w->isi_wayang }}</td>
+        <td><img src="{{ asset('storage/' . $w->gambar_wayang) }}" alt="Gambar Wayang" width="300px"></td>
+        <td>{{ $w->kategori->nama_kategori }}</td>
+    </tr>
+    @endforeach
+    </tbody>
+</table>
 </body>
 
 </html>

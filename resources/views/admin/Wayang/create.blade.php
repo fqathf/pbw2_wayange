@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Update Wayang</title>
+    <title>Tambah Wayang</title>
     <style>
         /* CSS untuk merapikan form */
         body {
@@ -30,7 +30,6 @@
         h2 {
             margin-top: 0;
             color: #333;
-            text-align: center; /* Memastikan teks di h2 berada di tengah */
         }
 
         label {
@@ -43,6 +42,7 @@
 
         input[type="text"],
         textarea,
+        select,
         input[type="file"] {
             width: 100%;
             padding: 10px;
@@ -80,48 +80,37 @@
             max-width: 200px;
             margin-top: 10px;
             border-radius: 4px;
-            display: block;
+            display: none;
         }
     </style>
 </head>
 <body>
-    <form action="{{ route('wayang.update', $listWayang->id) }}" method="POST" enctype="multipart/form-data">
-        <h2>Update Wayang</h2>
+    <form action="{{ route('admin.wayang.store') }}" method="POST" enctype="multipart/form-data">
+        <h2>Tambah Wayang</h2>
         @csrf
-        @method('PUT')
-        
-        <label for="nama">Nama</label>
-        <input type="text" name="nama_wayang" id="nama" value="{{ $listWayang->nama_wayang }}" required>
-        
-        <label for="judul">Judul</label>
-        <input type="text" name="judul_wayang" id="judul" value="{{ $listWayang->judul_wayang }}" required>
-        
-        <label for="isi">Isi</label>
-        <textarea name="isi_wayang" id="isi" required>{{ $listWayang->isi_wayang }}</textarea>
-        
-        <label for="gambar">Gambar</label>
-        <input type="hidden" name="old_gambar_wayang" value="{{ $listWayang->gambar_wayang }}">
-        <input type="file" name="gambar_wayang" id="gambar" onchange="previewImage()">
-        
-        <!-- Pratinjau gambar lama jika ada -->
-        @if ($listWayang->gambar_wayang)
-            <p>Gambar saat ini:</p>
-            <img src="{{ asset('storage/' . $listWayang->gambar_wayang) }}" alt="Gambar Lama" class="img-preview">
-        @endif
+        <label for="nama">Nama Wayang</label>
+        <input type="text" name="nama_wayang" id="nama">
 
-        <!-- Pratinjau gambar baru -->
-        <p>Pratinjau gambar baru:</p>
-        <img id="imgPreview" class="img-preview" src="#" alt="Pratinjau Gambar" style="display: none;">
+        <label for="judul">Judul Wayang</label>
+        <input type="text" name="judul_wayang" id="judul">
+
+        <label for="isi">Isi Wayang</label>
+        <textarea name="isi_wayang" id="isi"></textarea>
+
+        <label for="gambar">Gambar Wayang</label>
+        <input type="file" name="gambar_wayang" id="gambar" onchange="previewImage()">
+
+        <!-- Elemen untuk pratinjau gambar -->
+        <img id="imgPreview" class="img-preview" src="#" alt="Pratinjau Gambar">
 
         <label for="kategori">Kategori Wayang</label>
         <select name="id_kategori" id="kategori">
             @foreach ($listKategori as $kategori)
-            <option value="{{ $kategori->id_k }}" {{ $kategori->id_k == $listWayang->id_kategori ? 'Selected' : ''}}>{{ $kategori->nama_kategori }}</option>
+            <option value="{{ $kategori->id_k }}">{{ $kategori->nama_kategori }}</option>
             @endforeach
         </select>
-
-        <button type="submit">Update</button>
-    </form>    
+        <button type="submit">Tambah</button>
+    </form>
 
     <script>
         function previewImage() {

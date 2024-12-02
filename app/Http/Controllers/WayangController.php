@@ -11,11 +11,17 @@ use Illuminate\Support\Facades\Storage;
 
 class WayangController extends Controller
 {
+    // function __construct()
+    // {
+    //     $this->middleware('role:Admin', ['only' => ['index']]);
+    //     // $this->middleware('permission:wayang-create', ['only' => ['create', 'store']]);
+    // }
+
     public function index()
     {
         $listWayang = Wayang::with('kategori')->get();
         $listKategori = Kategori::all();
-        return view('wayangmvp.index', [
+        return view('admin.wayang.index', [
             'listWayang' => $listWayang,
             'listKategori' => $listKategori
         ]);
@@ -26,7 +32,7 @@ class WayangController extends Controller
     {
         $listKategori = Kategori::all();
         $listWayang = Wayang::all();
-        return view('wayang.create', [
+        return view('admin.wayang.create', [
             'listKategori' => $listKategori,
             'listWayang' => $listWayang
         ]);
@@ -48,12 +54,12 @@ class WayangController extends Controller
 
         Wayang::create($validateWayang);
 
-        return redirect()->route('wayang.index')->with('success', 'Wayang created successfully.');
+        return redirect()->route('admin.wayang.index')->with('success', 'Wayang created successfully.');
     }
 
     public function edit($id)
-    {   
-        return view('wayang.update', [
+    {
+        return view('admin.wayang.update', [
             'listWayang' => Wayang::find($id),
             'listKategori' => Kategori::all()
         ]);
@@ -62,23 +68,23 @@ class WayangController extends Controller
     public function update(Request $wayangRequest, $id)
     {
         $validateWayang = $wayangRequest->validate([
-            'nama_wayang' => 'nullable',
-            'judul_wayang' => 'nullable',
-            'isi_wayang' => 'nullable',
-            'gambar_wayang' => 'nullable|image|file|max:2048',
-            'id_kategori' => 'nullable',
+            'nama_wayang' => 'required',
+            'judul_wayang' => 'required',
+            'isi_wayang' => 'required',
+            'gambar_wayang' => 'image|file|max:2048',
+            'id_kategori' => 'required',
         ]);
 
         if ($wayangRequest->file('gambar_wayang')) {
             if ($wayangRequest->old_gambar_wayang) {
-                Storage::delete($wayangRequest->old_gambar_wayang);
+                Storage::disk('public')->delete($wayangRequest->old_gambar_wayang);
             }
             $validateWayang['gambar_wayang'] = $wayangRequest->file('gambar_wayang')->store('gambar-wayang', 'public');
         }
 
         Wayang::find($id)->update($validateWayang);
 
-        return redirect()->route('wayang.index')->with('success', 'Wayang updated successfully.');
+        return redirect()->route('admin.wayang.index')->with('success', 'Wayang updated successfully.');
     }
 
     public function destroy($id)
@@ -86,15 +92,15 @@ class WayangController extends Controller
         $listWayang = Wayang::find($id);
 
         if ($listWayang->gambar_wayang) {
-            Storage::delete('gambar-wayang/' . basename($listWayang->gambar_wayang));
+            Storage::disk('public')->delete($listWayang->gambar_wayang);
         }
 
         $listWayang->delete();
         Wayang::destroy($id);
 
-        return redirect()->route('wayang.index')->with('success', 'Wayang deleted successfully.');
+        return redirect()->route('admin.wayang.index')->with('success', 'Wayang deleted successfully.');
     }
-    
+
     public function search(Request $wayangRequest)
     {
         $listKategori = Kategori::all();
@@ -104,7 +110,7 @@ class WayangController extends Controller
             $query->where('nama_wayang', 'like', "%" . $wayangRequest->search . "%");
         }
 
-        return view('wayang.index', [
+        return view('admin.wayang.index', [
             'listWayang' => $query->get(),
             'listKategori' => $listKategori
         ]);
@@ -122,9 +128,54 @@ class WayangController extends Controller
             $query->where('id_kategori', $wayangRequest->kategori);
         }
 
+        return view('admin.wayang.index', [
+            'listWayang' => $query->get(),
+            'listKategori' => $listKategori
+        ]);
+    }
+
+    public function indexUser()
+    {
+        $listWayang = Wayang::with('kategori')->get();
+        $listKategori = Kategori::all();
+        return view('wayang.index', [
+            'listWayang' => $listWayang,
+            'listKategori' => $listKategori
+        ]);
+    }
+
+    public function searchUser(Request $wayangRequest)
+    {
+        $listKategori = Kategori::all();
+        $query = Wayang::query();
+
+        if($wayangRequest->filled('search')){
+            $query->where('nama_wayang', 'like', "%" . $wayangRequest->search . "%");
+        }
+
         return view('wayang.index', [
             'listWayang' => $query->get(),
             'listKategori' => $listKategori
         ]);
     }
+
+    public function filterUser(Request $wayangRequest)
+    {
+        $listKategori = Kategori::all();
+        $query = Wayang::with('kategori');
+
+        if($wayangRequest->input('kategori') == 0){
+            $query;
+        }
+        else{
+            $query->where('id_kategori', $wayangRequest->kategori);
+        }
+
+        return view('wayang.index', [
+            'listWayang' => $query->get(),
+            'listKategori' => $listKategori
+        ]);
+    }
+
+
 }

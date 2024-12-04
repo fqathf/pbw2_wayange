@@ -156,8 +156,7 @@
             </svg>
           </div>
           <h1
-            class="text-zinc-800 text-2xl font-extrabold font-[playfair] leading-[33.60px]"
-          >
+            class="text-zinc-800 text-2xl font-extrabold font-[playfair] leading-[33.60px]">
             Apa itu Wayang?
           </h1>
           <p class="text-stone-600 text-lg font-medium font-['manrope'] mt-3">

@@ -68,11 +68,11 @@ Route::get('/register', [AkunController::class, 'formRegisterUser'])->name('regi
 Route::post('/register', [AkunController::class, 'registerUser'])->name('register');
 Route::get('/login', [AkunController::class, 'formLoginUser'])->name('login');
 Route::post('/login', [AkunController::class, 'loginUser'])->name('login');
-Route::get('/wayang', [WayangController::class, 'indexUser'])->name('wayang.index');
+Route::get('/wayang', [WayangController::class, 'indexUser'])->name('wayang.display');
 Route::get('/wayang/filter', [WayangController::class, 'filterUser'])->name('wayang.filter');
 Route::get('/wayang/search', [WayangController::class, 'searchUser'])->name('wayang.search');
 Route::get('/berita', [BeritaController::class, 'indexUser'])->name('berita.index');
-Route::get('/museum', [MuseumController::class, 'indexUser'])->name('museum.index');
+Route::get('/museum', [MuseumController::class, 'indexUser'])->name('Museum.display');
 
 //Route::group(['middleware' => ['auth', 'role:User|Admin']], function(){
 //

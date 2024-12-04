@@ -88,7 +88,7 @@ class MuseumController extends Controller
     public function indexUser()
     {
         $listMuseum = Museum::all();
-        return view('museum.index', [
+        return view('Museum.display', [
             'listMuseum' => $listMuseum
         ]);
     }

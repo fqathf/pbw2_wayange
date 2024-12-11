@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Museum;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class MuseumController extends Controller
 {
@@ -88,8 +89,35 @@ class MuseumController extends Controller
     public function indexUser()
     {
         $listMuseum = Museum::all();
-        return view('Museum.display', [
+        return view('museum.display', [
             'listMuseum' => $listMuseum
         ]);
+    }
+
+    public function searchUser(Request $museumRequest)
+    {
+        $query = Museum::query();
+
+        if($museumRequest->filled('search')){
+            $query->where('nama_museum', 'like', "%" . $museumRequest->search . "%");
+        }
+
+        return view('museum.display', [
+            'listMuseum' => $query->get()
+        ]);
+    }
+
+    public function show($id)
+    {
+        // Mengambil data museum berdasarkan ID
+        $museum = DB::table('data_museum')->where('id', $id)->first();
+
+        // Jika data tidak ditemukan, tampilkan halaman 404
+        if (!$museum) {
+            abort(404, 'Museum not found');
+        }
+
+        // Kirim data museum ke view
+        return view('museum.show', ['museum' => $museum]);
     }
 }

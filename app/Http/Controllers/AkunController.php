@@ -55,7 +55,7 @@ class AkunController extends Controller
         ]);
 
         if(Auth::attempt($request->only('email', 'password'))){
-            return redirect()->route('admin.wayang.index');
+            return redirect()->route('admin.index');
         }
         return redirect()->back()->with('error', 'Email or password is wrong.');
     }
@@ -103,8 +103,18 @@ class AkunController extends Controller
         ]);
 
         if(Auth::attempt($request->only('email', 'password'))){
-            return redirect()->route('wayang.index');
+            return redirect()->route('wayang.display');
         }
         return redirect()->back()->with('error', 'Email or password is wrong.');
     }
+
+    // // Fungsi untuk menampilkan username pengguna yang sedang login
+    // public function getUsername()
+    // {
+    //     if (Auth::check()) {
+    //         $username = Auth::user()->username; // Ambil username dari user yang login
+    //         return response()->json(['username' => $username]);
+    //     }
+    //     return response()->json(['error' => 'User not authenticated'], 401);
+    // }
 }

@@ -48,38 +48,45 @@
           >
             <li>
               <a
-                href="#"
+                href="{{ route('landing') }}"
                 class="nav-item block py-2 px-3 font-[manrope] text-lg font-bold rounded md:bg-transparent hover:bg-gray-100 text-yellow-900 md:p-0 md:hover:bg-transparent md:hover:underline active:font-bold"
                 aria-current="page"
                 >Beranda</a
               >
             </li>
-            <li>
+            <!-- <li>
               <a
                 href="#about"
                 class="nav-item block py-2 px-3 text-yellow-900 font-[manrope] text-lg font-medium rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:underline active:font-bold md:p-0"
                 >Tentang</a
               >
-            </li>
+            </li> -->
             <li>
               <a
-                href="#characters"
+                href="{{ route('wayang.display') }}"
                 class="nav-item block py-2 px-3 text-yellow-900 font-[manrope] text-lg font-medium rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:underline active:font-bold md:p-0"
                 >Karakter</a
               >
             </li>
             <li>
               <a
-                href="#museum"
+                href="{{ route('museum.display') }}"
                 class="nav-item block py-2 px-3 text-yellow-900 font-[manrope] text-lg font-medium rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:underline active:font-bold md:p-0"
                 >Museum</a
               >
             </li>
             <li>
               <a
-                href="#berita"
+                href="{{ route('berita.index') }}"
                 class="nav-item block py-2 px-3 text-yellow-900 font-[manrope] text-lg font-medium rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:underline active:font-bold md:p-0"
                 >Berita</a
+              >
+            </li>
+            <li>
+              <a
+                href="{{ route('quiz.display') }}"
+                class="nav-item block py-2 px-3 text-yellow-900 font-[manrope] text-lg font-medium rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:underline active:font-bold md:p-0"
+                >Kuis</a
               >
             </li>
           </ul>
@@ -87,9 +94,9 @@
           <div class="search"></div>
           <a
                 class="button-brown flex flex-row font-[manrope] lg:hidden font-semibold gap-3 items-center w-[160px] justify-center rounded-full stroke-white bg-[#653312] px-4 py-3 border-4 border-yellow-900 text-base text-neutral-50 shadow hover:bg-[#8c522b] focus:outline-none focus:ring active:bg-[#8c522b] md:w-auto"
-                href="./quiz/?id=1"
+                href="{{ route('login') }}"
               >
-                Ikuti Kuis Kepribadian
+                Login
               </a>
         </div>
         </div>
@@ -97,10 +104,23 @@
           <div class="search"></div>
           <a
                 class="button-brown lg:flex flex-row font-[manrope] hidden font-semibold gap-3 items-center w-[160px] justify-center rounded-full stroke-white bg-[#653312] px-4 py-3 border-4 border-yellow-900 text-base text-neutral-50 shadow hover:bg-[#8c522b] focus:outline-none focus:ring active:bg-[#8c522b] md:w-auto"
-                href="./quiz/?id=1"
+                href="{{ route('login') }}"
               >
-                Ikuti Kuis Kepribadian
+                Login
               </a>
         </div>
       </div>
     </nav>
+    <script>
+      window.onscroll = function () { scrollFunction() };
+
+      function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+
+              document.getElementById("navbar").style.background = "#fff";
+          } else {
+
+              document.getElementById("navbar").style.background = "none";
+          }
+      }
+    </script>

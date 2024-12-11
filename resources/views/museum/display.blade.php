@@ -56,8 +56,9 @@
             </p>
 
             <form class="mt-4 flex flex-col gap-3 md:flex-row" action="{{ route('museum.search') }}" method="GET">
-                <input class="rounded-full py-4 px-6 border-0 shadow font-[manrope] font-medium" type="text" name="keyword" id="keyword" size="40px" placeholder="Masukan Nama Museum" autocomplete="off">
-                <button type="submit" name="cari" class="py-2 px-4 bg-[#653312] rounded-full text-white hover:text-[#653312] font-[manrope] font-bold border hover:bg-white transition-colors" id="tombolcari">Search</button>
+              @csrf  
+              <input class="rounded-full py-4 px-6 border-0 shadow font-[manrope] font-medium" type="text" name="search" id="keyword" size="40px" placeholder="Masukan Nama Museum" autocomplete="off" value="{{ request('search') }}" >
+              <button type="submit" name="cari" class="py-2 px-4 bg-[#653312] rounded-full text-white hover:text-[#653312] font-[manrope] font-bold border hover:bg-white transition-colors" id="tombolcari">Search</button>
             </form>
 
           </div>
@@ -75,10 +76,11 @@
     <!-- items start  -->
     <section class="min-h-screen max-w-screen pt-40">
         <div id="tableMuseum" class="flex flex-row flex-wrap justify-center gap-6">
-        @forelse ($museums as $museum)
+        @forelse ($listMuseum as $museum)
+          <!-- Nanti di href kasih route buat character.show -->
             <a
-                href="{{ route('museum.show', $museum->id) }}"
-                class="rounded flex items-end p-3 mb-3 bg-cover bg-[url('{{ asset('admin/GambarMuseum/' . $museum->gambar_museum) }}')] w-[150px] h-[225px] sm:w-[300px] sm:h-[450px]"
+                href="{{ route('museum.show', ['id' => $museum->id]) }}"
+                class="rounded flex items-end p-3 mb-3 bg-cover bg-[url('{{ asset('storage/' . $museum->gambar_museum) }}')] w-[150px] h-[225px] sm:w-[300px] sm:h-[450px]"
             >   
                 <div class="bg-white flex flex-col opacity-70 py-3 px-6">
                   <p class="inline-flex justify-start items-center gap-2 text-zinc-600 text-sm font-medium font-[poppins]">{{ $museum->id }} <svg xmlns="http://www.w3.org/2000/svg" width="24" height="2" viewBox="0 0 24 2" fill="none">

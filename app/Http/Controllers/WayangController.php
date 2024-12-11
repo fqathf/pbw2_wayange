@@ -177,5 +177,9 @@ class WayangController extends Controller
         ]);
     }
 
-
+    public function show($id)
+    {
+        $wayang = Wayang::with('kategori')->findOrFail($id); // Mengambil data wayang dan kategori
+        return view('wayang.show', compact('wayang'));
+    }
 }

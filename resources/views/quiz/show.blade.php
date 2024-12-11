@@ -46,7 +46,7 @@
                                 <path d="M9.92169 12.7255L0.439731 3.24374L3.14881 0.534661L15.3398 12.7255L3.1488 24.9165L0.439729 22.2074L9.92169 12.7255Z" fill="#E8E3D4"/>
                             </svg>
                         </button>
-                        <script>
+                        <!-- <script>
                             let cPosition = 0;
                             let cButtonPrev = document.getElementById('button-prev');
                             let cButtonNext = document.getElementById('button-next');
@@ -66,7 +66,7 @@
                             function buttonPrevFunc() { /* Function code */ }
                             function buttonNextFunc() { /* Function code */ }
                             updateButtons();
-                        </script>
+                        </script> -->
                     </div>
                     <input type="hidden" name="id_kuis" value="{{ $quiz_id }}">
                     <input class="cursor-pointer py-2 px-3 bg-[#653312] rounded-lg text-white font-bold font-[manrope] hover:opacity-90 transition-opacity" type="submit" value="Submit">
@@ -74,6 +74,27 @@
             </div>
         </form>
     </div>
+    <script>
+    let cPosition = 0;
+    let cButtonPrev = document.getElementById('button-prev');
+    let cButtonNext = document.getElementById('button-next');
+    let questionLength = 5;
+    function updateButtons() {
+        if (cPosition === 0) {
+            cButtonPrev.classList.add('hidden');
+        } else {
+            cButtonPrev.classList.remove('hidden');
+        }
+        if (cPosition >= questionLength - 1) {
+            cButtonNext.classList.add('hidden');
+        } else {
+            cButtonNext.classList.remove('hidden');
+        }
+    }
+    function buttonPrevFunc() { /* Function code */ }
+    function buttonNextFunc() { /* Function code */ }
+    updateButtons();
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <script src="{{ asset('script/navFunc.js') }}"></script>
 </body>

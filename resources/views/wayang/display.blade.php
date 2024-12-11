@@ -62,28 +62,57 @@
                 Masukkan nama wayang yang ingin kamu cari
             </p>
 
-            <form class="mt-4 flex flex-col gap-3 md:flex-row" action="" method="POST">
+            <form class="mt-4 flex flex-col gap-3 md:flex-row" action="{{ route('wayang.search') }}" method="GET">
                 @csrf
-                <input class="rounded-full py-4 px-6 border-0 shadow font-[manrope] font-medium" type="text" name="keyword" id="keyword" size="40px" placeholder="Masukan Nama Wayang" autocomplete="off">
+                <input class="rounded-full py-4 px-6 border-0 shadow font-[manrope] font-medium" type="text" name="search" id="keyword" size="40px" placeholder="Masukan Nama Wayang" value="{{ request('search') }}" autocomplete="off">
                 <button type="submit" class="py-2 px-4 bg-[#653312] rounded-full text-white hover:text-[#653312] font-[manrope] font-bold border hover:bg-white transition-colors">Search</button>
             </form>
 
-            <div
-              class="mt-8 flex flex-wrap justify-center content-center flex-col md:flex-row gap-4"
-            >  
-            <ul class="flex flex-wrap gap-3 justify-center">
-                <li>
-                    <input type="radio" id="all_cat" name="filter" value="" class="peer hidden"/> 
-                    <label for="all_cat" class="inline-flex shadow font-bold cursor-pointer text-[#653312] peer-checked:bg-[#F1E7E1] peer-checked:text-[#653312] bg-white border px-6 py-2 rounded-full">Semua</label>
-                </li>
-                @foreach($listKategori as $category)
-                    <li>
-                        <input type="radio" id="{{ $category->id }}" class="peer hidden" name="filter" value="{{ $category->nama_kategori }}" />
-                        <label for="{{ $category->id }}" class="inline-flex shadow font-bold cursor-pointer text-[#653312] peer-checked:bg-[#F1E7E1] peer-checked:text-[#653312] bg-white border px-6 py-2 rounded-full">{{ $category->nama_kategori }}</label>
-                    </li>
-                @endforeach
-            </ul>
-            </div>
+            <form
+    id="filterForm" action="{{ route('wayang.filter') }}" method="GET"
+    class="mt-8 flex flex-wrap justify-center content-center flex-col md:flex-row gap-4"
+>  
+    <ul class="flex flex-wrap gap-3 justify-center">
+        <li>
+            <!-- Memperbaiki attribute `selected` menjadi `checked` -->
+            <input 
+                type="radio" 
+                id="all_cat" 
+                name="kategori" 
+                value="0" 
+                class="peer hidden" 
+                onclick="document.getElementById('filterForm').submit()" 
+                {{ request('kategori') == 0 ? 'checked' : '' }}
+            /> 
+            <label 
+                for="all_cat" 
+                class="inline-flex shadow font-bold cursor-pointer text-[#653312] peer-checked:bg-[#F1E7E1] peer-checked:text-[#653312] bg-white border px-6 py-2 rounded-full"
+            >
+                Semua
+            </label>
+        </li>
+        @foreach($listKategori as $category)
+        <li>
+            <input 
+                type="radio" 
+                id="kategori_{{ $category->id_k }}" 
+                name="kategori" 
+                value="{{ $category->id_k }}" 
+                class="peer hidden" 
+                onclick="document.getElementById('filterForm').submit()" 
+                {{ request('kategori') == $category->id_k ? 'checked' : '' }}
+            />
+            <label 
+                for="kategori_{{ $category->id_k }}" 
+                class="inline-flex shadow font-bold cursor-pointer text-[#653312] peer-checked:bg-[#F1E7E1] peer-checked:text-[#653312] bg-white border px-6 py-2 rounded-full"
+            >
+                {{ $category->nama_kategori }}
+            </label>
+        </li>
+        @endforeach
+    </ul>
+</form>
+ 
           </div>
         </div>
         <!-- Teks Tengah end -->
@@ -103,8 +132,8 @@
         @forelse($listWayang as $item)
             <!-- Nanti di href kasih route buat character.show -->
             <a
-                href=""
-                class="rounded flex items-end p-3 mb-3 bg-cover bg-[url('{{ asset('admin/GambarWayang/' . $item->gambar_wayang) }}')] w-[150px] h-[225px] sm:w-[300px] sm:h-[450px]"
+                href="{{ route('wayang.show', ['id' => $item->id]) }}"
+                class="rounded flex items-end p-3 mb-3 bg-cover bg-[url('{{ asset('storage/' . $item->gambar_wayang) }}')] w-[150px] h-[225px] sm:w-[300px] sm:h-[450px]"
             >   
                 <div class=""></div>
                 <div class="bg-white flex flex-col opacity-70 py-3 px-6">

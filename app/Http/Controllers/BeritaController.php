@@ -87,8 +87,33 @@ class BeritaController extends Controller
     public function indexUser()
     {
         $listBerita = Berita::all();
-        return view('berita.index', [
+        return view('berita.display', [
             'listBerita' => $listBerita
         ]);
+    }
+
+    public function searchUser(Request $beritaRequest)
+    {
+        $query = Berita::query();
+
+        if($beritaRequest->filled('search')){
+            $query->where('judul_berita', 'like', "%" . $beritaRequest->search . "%");
+        }
+
+        return view('berita.display', [
+            'listBerita' => $query->get()
+        ]);
+    }
+
+    public function show($id)
+    {
+        // Fetch berita berdasarkan ID
+        $berita = Berita::find($id);
+
+        if (!$berita) {
+            abort(404, 'Halaman berita tidak ditemukan');
+        }
+
+        return view('berita.show', compact('berita'));
     }
 }

@@ -98,7 +98,7 @@
     <input type="text" name="nama_museum" id="nama_museum">
 
     <label for="daerah_museum">Daerah Museum</label>
-    <input type="text" name="daerah_museum" id="daerah_museum" placeholder="Cari lokasi museum di peta" onFocus="geolocate()">
+    <input type="text" name="daerah_museum" id="daerah_museum" placeholder="" /*onFocus="geolocate()"*/>
 
     <label for="judul_museum">Judul Museum</label>
     <input type="text" name="judul_museum" id="judul_museum">
@@ -113,7 +113,7 @@
     <img id="imgPreview" class="img-preview" src="#" alt="Pratinjau Gambar">
 
     <!-- Peta -->
-    <div id="map"></div>
+    <!-- <div id="map"></div> -->
 
     <button type="submit">Tambah</button>
 </form>

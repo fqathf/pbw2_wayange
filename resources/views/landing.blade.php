@@ -1345,17 +1345,6 @@
     <script type="module">
     import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs'
       // Vanilla JS
-window.onscroll = function () { scrollFunction() };
-
-function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-
-        document.getElementById("navbar").style.background = "#fff";
-    } else {
-
-        document.getElementById("navbar").style.background = "none";
-    }
-}
 
 function burgerClick() {
     document.getElementById("navbar").style.background = "#fff";

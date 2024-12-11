@@ -12,6 +12,7 @@ use App\Http\Controllers\QuizController;
 use App\Http\Controllers\QuizListController;
 use App\Http\Controllers\QuizResultController;
 use App\Http\Controllers\CharacterController;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return view('landing');
@@ -19,11 +20,15 @@ Route::get('/', function () {
 
 Route::get('/quiz/{id}', [QuizController::class, 'show'])->name('quiz.show');
 Route::post('/quiz/result', [QuizController::class, 'result'])->name('result');
-Route::get('/quizzes', [QuizListController::class, 'index'])->name('quiz.list');
+Route::get('/quizzes', [QuizListController::class, 'index'])->name('quiz.display');
+Route::get('/quizzes/search', [QuizListController::class, 'searchUser'])->name('quiz.search');
 Route::post('/quiz/result', [QuizResultController::class, 'showResult'])->name('quiz.result');
 Route::get('/character/{id}', [CharacterController::class, 'show'])->name('character.show');
 
 Route::group(['middleware' => ['auth', 'role:Admin']], function(){
+    Route::get('/admin', [DashboardController::class, 'index'])->name('admin.index');
+    // Route::get('/admin', [AkunController::class, 'getUsername'])->name('admin.index');
+
     Route::get('/admin/wayang', [WayangController::class, 'index'])->name('admin.wayang.index');
     Route::get('/admin/wayang/create', [WayangController::class, 'create'])->name('admin.wayang.create');
     Route::post('/admin/wayang/store', [WayangController::class, 'store'])->name('admin.wayang.store');
@@ -54,14 +59,15 @@ Route::group(['middleware' => ['auth', 'role:Admin']], function(){
     Route::get('/admin/berita/{id}/edit', [BeritaController::class, 'edit'])->name('admin.berita.edit');
     Route::put('/admin/berita/{id}', [BeritaController::class, 'update'])->name('admin.berita.update');
     Route::delete('/admin/berita/{id}', [BeritaController::class, 'destroy'])->name('admin.berita.destroy');
+
+    Route::get('/admin/register', [AkunController::class, 'formRegister'])->name('admin.register');
+    Route::post('/admin/register', [AkunController::class, 'register'])->name('admin.register');
 });
 
 // Route akun admin
-Route::get('/admin/register', [AkunController::class, 'formRegister'])->name('admin.register');
-Route::post('/admin/register', [AkunController::class, 'register'])->name('admin.register');
 Route::get('/admin/login', [AkunController::class, 'formLogin'])->name('admin.login');
 Route::post('/admin/login', [AkunController::class, 'login'])->name('admin.login');
-Route::get('/admin/logout', [AkunController::class, 'logout'])->name('admin.logout');
+Route::post('', [AkunController::class, 'logout'])->name('admin.logout');
 
 // Route akun user
 Route::get('/register', [AkunController::class, 'formRegisterUser'])->name('register');
@@ -69,11 +75,16 @@ Route::post('/register', [AkunController::class, 'registerUser'])->name('registe
 Route::get('/login', [AkunController::class, 'formLoginUser'])->name('login');
 Route::post('/login', [AkunController::class, 'loginUser'])->name('login');
 Route::get('/wayang', [WayangController::class, 'indexUser'])->name('wayang.display');
+// Route::get('/wayangdev', [WayangController::class, 'indexUser'])->name('wayang.index');
 Route::get('/wayang/filter', [WayangController::class, 'filterUser'])->name('wayang.filter');
 Route::get('/wayang/search', [WayangController::class, 'searchUser'])->name('wayang.search');
+Route::get('/wayang/{id}', [WayangController::class, 'show'])->name('wayang.show');
 Route::get('/berita', [BeritaController::class, 'indexUser'])->name('berita.index');
-Route::get('/museum', [MuseumController::class, 'indexUser'])->name('Museum.display');
-
+Route::get('/berita/search', [BeritaController::class, 'searchUser'])->name('berita.search');
+Route::get('/berita/{id}', [BeritaController::class, 'show'])->name('berita.show');
+Route::get('/museum', [MuseumController::class, 'indexUser'])->name('museum.display');
+Route::get('/museum/search', [MuseumController::class, 'searchUser'])->name('museum.search');
+Route::get('/museum/{id}', [MuseumController::class, 'show'])->name('museum.show');
 //Route::group(['middleware' => ['auth', 'role:User|Admin']], function(){
 //
 //});

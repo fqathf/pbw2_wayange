@@ -12,8 +12,20 @@ class QuizListController extends Controller
         // Mengambil semua kuis
         $quizzes = Kuis::all();
         
-        return view('quiz.list', [
+        return view('quiz.display', [
             'quizzes' => $quizzes,
+        ]);
+    }
+    public function searchUser(Request $kuisRequest)
+    {
+        $query = Kuis::query();
+
+        if($kuisRequest->filled('search')){
+            $query->where('judul', 'like', "%" . $kuisRequest->search . "%");
+        }
+
+        return view('quiz.display', [
+            'quizzes' => $query->get()
         ]);
     }
 }

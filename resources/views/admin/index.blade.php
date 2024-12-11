@@ -9,9 +9,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 </head>
 <body>
+    @include('components.sidebar')
 <nav
       id="navbar"
-      class="bg-white sm:bg-white border-gray-200 w-[100%] fixed z-40"
+      class="bg-white sm:bg-white border-gray-200 w-[100%] fixed z-30"
     >
       <div
         class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"

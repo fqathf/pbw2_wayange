@@ -60,9 +60,12 @@
             background-color: #d32f2f;
         }
     </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 </head>
 
 <body>
+@include('components.sidebar')
     <h3>Daftar Wayang</h3>
     <a href="{{ route('admin.wayang.create') }}" type="button">Tambah Wayang</a>
 
@@ -118,6 +121,7 @@
             @endforeach
         </tbody>
     </table>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 </body>
 
 </html>

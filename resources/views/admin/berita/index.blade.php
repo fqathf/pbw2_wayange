@@ -117,8 +117,11 @@
             border-radius: 5px;
         }
     </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 </head>
 <body>
+    @include('components.sidebar')
     <div class="container">
         <h1>List Berita</h1>
         <a href="{{ route('admin.berita.create') }}">Tambah Berita</a>
@@ -161,5 +164,6 @@
             </tbody>
         </table>
     </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 </body>
 </html>

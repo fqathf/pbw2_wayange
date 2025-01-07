@@ -33,10 +33,10 @@ class QuizResultController extends Controller
         ];
 
         $characterLink = [
-            1 => route('character.show', ['id' => 5]),
-            2 => route('character.show', ['id' => 13]),
-            3 => route('character.show', ['id' => 1]),
-            4 => route('character.show', ['id' => 14]),
+            1 => route('wayang.show', ['id' => 5]),
+            2 => route('wayang.show', ['id' => 13]),
+            3 => route('wayang.show', ['id' => 1]),
+            4 => route('wayang.show', ['id' => 14]),
         ];
 
         $characterIndex = round($total_score / (count($answers) ?: 1)); // pastikan tidak membagi dengan 0

@@ -7,6 +7,8 @@ use App\Models\Kategori;
 use App\Models\Wayang;
 use Illuminate\Container\Attributes\DB;
 use Illuminate\Support\Facades\Storage;
+use App\Models\HistoryWayang;
+use Illuminate\Support\Facades\Auth;
 
 
 class WayangController extends Controller
@@ -21,7 +23,7 @@ class WayangController extends Controller
     {
         $listWayang = Wayang::with('kategori')->get();
         $listKategori = Kategori::all();
-        return view('admin.wayang.index', [
+        return view('admin.wayang.display', [
             'listWayang' => $listWayang,
             'listKategori' => $listKategori
         ]);
@@ -181,5 +183,24 @@ class WayangController extends Controller
     {
         $wayang = Wayang::with('kategori')->findOrFail($id); // Mengambil data wayang dan kategori
         return view('wayang.show', compact('wayang'));
+    }
+
+    public function storeHistory(Request $request)
+    {
+        // Validasi data
+        $request->validate([
+            'id_w' => 'required|string',
+        ]);
+
+        // DD($request->id_w);
+
+        // Simpan ke tabel history_wayang
+        HistoryWayang::create([
+            'id_a' => Auth::id(), // Mendapatkan ID akun pengguna yang sedang login
+            'id_w' => $request->id_w,
+        ]);
+
+        return redirect()->route('wayang.show', ['id' => $request->id_w]);
+        // return response()->json(['message' => 'Data saved successfully']);
     }
 }

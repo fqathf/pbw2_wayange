@@ -22,7 +22,7 @@
     <section class="w-full m-0 p-0 h-full">
         <div class="w-full h-96">
             <div class="absolute w-full h-96 bg-cover bg-center brightness-50" 
-                style="background-image: url('{{ asset('admin/GambarBerita/' . $berita->gambar_berita) }}');">
+                style="background-image: url('{{ asset('storage/' . $berita->gambar_berita) }}');">
             </div>
             <div class="flex flex-row justify-between">
                 <div class="flex justify-start p-4 h-96 relative items-center">

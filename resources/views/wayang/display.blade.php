@@ -129,11 +129,18 @@
     <!-- items start  -->
     <section class="min-h-screen max-w-screen pt-40">
         <div id="tableWayang" class="flex flex-row flex-wrap justify-center gap-6">
+        <form class="hidden" action="{{ route('wayang.storeHistory') }}" method="POST">
+          @csrf 
+          <input type="text" name="id_w" id="idWayang" value="">
+          <button type="submit" id="submitId"></button>
+        </form>
         @forelse($listWayang as $item)
+
             <!-- Nanti di href kasih route buat character.show -->
             <a
-                href="{{ route('wayang.show', ['id' => $item->id]) }}"
+                
                 class="rounded flex items-end p-3 mb-3 bg-cover bg-[url('{{ asset('storage/' . $item->gambar_wayang) }}')] w-[150px] h-[225px] sm:w-[300px] sm:h-[450px]"
+                onclick="saveHistory({{ $item->id }})"
             >   
                 <div class=""></div>
                 <div class="bg-white flex flex-col opacity-70 py-3 px-6">
@@ -148,6 +155,27 @@
         @endforelse
         </div>
     </section>
+    <script>
+      function saveHistory(wayangId) {
+        document.getElementById('idWayang').value = wayangId;
+        document.getElementById('submitId').click();
+          // fetch("{{ route('wayang.storeHistory') }}", {
+          //     method: "POST",
+          //     headers: {
+          //         "Content-Type": "application/json",
+          //         "X-CSRF-TOKEN": "{{ csrf_token() }}",
+          //     },
+          //     body: JSON.stringify({ id_w: wayangId }),
+          // })
+          // .then(response => response.json())
+          // .then(data => {
+          //     console.log(data.message); // Tampilkan pesan sukses
+          // })
+          // .catch(error => {
+          //     console.error("Error:", error);
+          // });
+      }
+  </script>
     <!-- items end -->
 
     <script type="text/javascript" src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

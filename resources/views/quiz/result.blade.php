@@ -21,7 +21,7 @@
             <p class="font-manrope">Wayang yang sesuai dengan kepribadianmu adalah {{ $character }}. Mulai dari cara kamu mempelajari sesuatu, memikirkan sesuatu, sesuai dengan karakteristik {{ $character }}.</p>
             <br>
             <div>
-                <a href="{{ route('quiz.list') }}" class="rounded-lg font-[manrope] font-bold py-2 px-3 bg-[#653312] text-white hover:opacity-90 transition-opacity">Ulangi</a>
+                <a href="{{ route('quiz.display') }}" class="rounded-lg font-[manrope] font-bold py-2 px-3 bg-[#653312] text-white hover:opacity-90 transition-opacity">Ulangi</a>
                 <a href="{{ $characterLink }}" class="rounded-lg font-[manrope] font-bold py-2 px-3 text-[#653312] border border-[#653312] hover:opacity-90 transition-opacity">Pelajari Wayang</a>
             </div>
         </div>

@@ -21,7 +21,7 @@
     <!-- Jumbotron start -->
     <section class="w-full m-0 p-0 h-full">
         <div class="w-full h-96">
-            <div class="absolute w-full h-96 bg-[url('{{ asset('admin/GambarWayang/' . $wayang->gambar_wayang) }}')] brightness-50 bg-cover bg-center"></div>
+            <div class="absolute w-full h-96 bg-[url('{{ asset('storage/' . $wayang->gambar_wayang) }}')] brightness-50 bg-cover bg-center"></div>
             <div class="flex flex-row justify-between">
                 <div class="flex justify-start p-4 h-96 relative items-center">
                     <div class="absolute bottom-0 pl-4 w-[300px] sm:w-[500px]">

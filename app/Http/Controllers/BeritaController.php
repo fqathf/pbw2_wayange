@@ -11,7 +11,7 @@ class BeritaController extends Controller
     public function index()
     {
         $listBerita = Berita::all();
-        return view('admin.berita.index', [
+        return view('admin.berita.display', [
             'listBerita' => $listBerita
         ]);
     }
@@ -37,7 +37,7 @@ class BeritaController extends Controller
 
         Berita::create($validateBerita);
 
-        return redirect()->route('admin.berita.index')->with('success', 'Berita created successfully.');
+        return redirect()->route('admin.berita.display')->with('success', 'Berita created successfully.');
     }
 
     public function edit($id)
